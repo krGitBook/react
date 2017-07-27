@@ -1,17 +1,14 @@
-import mobx, {
-	observable,
-	action,
-} from 'mobx';
 
-//全局store
-let State = observable({
-	name: 'dd',
-});
+import {observable, useStrict, action, computed} from "mobx";
 
-//action
-State.submitVisit = action(function(params,callback) {
 
-	this.name = "ppp";
-});
+class WelComeModel {
+  @observable info = {};
+  @observable birthday = "hello Mobx";
 
-module.exports = State;
+  constructor() {
+  }
+
+}
+
+export default new WelComeModel();
