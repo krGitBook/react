@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import store from './Mobx'
 
-import './publicCss/index.less'
+
 import App from './App';
 
 
