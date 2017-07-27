@@ -3,12 +3,13 @@ import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import {
   Welcome,
   Initialize,
-  Undefined
+  Undefined,
+  Lyh
 } from 'kr-ui';
 export default class DevRouter extends React.Component{
 
 	  render() {
-	  
+
 	    return (
         <div>
 
@@ -20,6 +21,7 @@ export default class DevRouter extends React.Component{
           <Switch>
             <Route exact path="/" component={Welcome} />
             <Route path="/news" component={Initialize} />
+            <Route path="/demo/lyh" component={Lyh} />
             <Route component={Undefined} />
           </Switch>
 

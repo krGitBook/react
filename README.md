@@ -12,5 +12,5 @@
 ```
 
 该项目分别使用了redux和mobx这两个数据管理框架分
-redux在feture/redux分支
+redux在redux分支
 mobx在master分支
