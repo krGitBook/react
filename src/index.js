@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
-import { Provider } from 'mobx-react';
-import store from './Mobx'
+import store from './Redux/Store';
 
-import './publicCss/index.less'
+
+
 import App from './App';
+
+import registerServiceWorker from './registerServiceWorker';
 
 
 ReactDOM.render(
-    <Provider {...store}>
+    <Provider store = {store}>
          <App/>
      </Provider>
 , document.getElementById('root'));
+registerServiceWorker();

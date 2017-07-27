@@ -51,17 +51,15 @@ function clamp(element, options) {
      */
     function computeStyle(elem, prop) {
         /**
-         * getComputedStyle(element, [pseudoElt]) 获取节点的css属性值
-         * @element  {node}   用于获取计算样式的Element
-         * @pseudoElt  {string} 指定一个要匹配的伪元素的字符串。必须对普通元素省略
-         * demo  getComputedStyle(element, '::after') || getComputedStyle(element,null)
+         * getComputedStyle 获取节点的css属性值
+         * @param  {[type]}
+         * @return {[type]}
          */
         if (!win.getComputedStyle) {
             win.getComputedStyle = function(el, pseudo) {
                 this.el = el;
 
                 this.getPropertyValue = function(prop) {
-                    //以“-”剪切并将第二个的数字母大写
                     var re = /(\-([a-z]){1})/g;
                     if (prop == 'float') prop = 'styleFloat';
                     if (re.test(prop)) {
@@ -86,6 +84,7 @@ function clamp(element, options) {
     function getMaxLines(height) {
         var availHeight = height || element.clientHeight,
             lineHeight = getLineHeight(element);
+
         return Math.max(Math.floor(availHeight/lineHeight), 0);
     }
 
