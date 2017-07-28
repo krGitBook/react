@@ -5,7 +5,7 @@ import {
   Initialize,
   Undefined,
   Lyh
-} from 'kr-ui';
+} from 'react-pages';
 export default class DevRouter extends React.Component{
 
 	  render() {

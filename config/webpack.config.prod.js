@@ -88,7 +88,7 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      'kr-ui': path.join(process.cwd(), '/src/Containers'),
+      'react-pages': path.join(process.cwd(), '/src/Containers'),
       'react-ui': path.join(__dirname, '../src/Components'),
       'Utils': path.join(__dirname, '../src/Utils'),
       'Config': path.join(__dirname, '../src/Config'),
