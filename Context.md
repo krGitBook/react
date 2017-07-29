@@ -61,10 +61,6 @@ export default class Child extends React.Component {
 
 ```
 
-
-
-
-
 ### 结合mobx写法
 
 父页面：
