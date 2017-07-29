@@ -4,7 +4,8 @@ import {
   Welcome,
   Initialize,
   Undefined,
-  Lyh
+  Lyh,
+  Dfa
 } from 'react-pages';
 export default class DevRouter extends React.Component{
 
@@ -22,6 +23,7 @@ export default class DevRouter extends React.Component{
             <Route exact path="/" component={Welcome} />
             <Route path="/news" component={Initialize} />
             <Route path="/demo/lyh" component={Lyh} />
+            <Route path="/demo/dfa" component={Dfa} />
             <Route component={Undefined} />
           </Switch>
 
