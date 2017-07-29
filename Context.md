@@ -5,8 +5,19 @@
  * 常规写法
  * 结合mobx写法
 
+####语法：
+
+* 父页面：
+ * 要使用getChildContext，必须定义childContextTypes
+ * 使用getChildContext指定的传递给子组件的属性，必须是childContextTypes 里面的属性 
+* 子页面：
+ * 要是使用context，必须定义contextTypes   
+ * 使用context访问的属性，必须是contextTypes里面的属性  
+
+
+
 ###  常规写法
-		
+
 父页面：
 ```
 export default class Dfa extends React.Component {
