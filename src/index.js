@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from 'mobx-react';
 import store from './Mobx'
-
+import './publicStyle/init.less'
 
 import App from './App';
 

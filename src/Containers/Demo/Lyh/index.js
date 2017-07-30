@@ -5,7 +5,7 @@ export default class Lyh extends React.Component {
 
 		return (
 				<div style={{marginBottom:"50px"}}>
-					1313
+					1313asdas
 				</div>
 	   );
 	}
