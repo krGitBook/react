@@ -93,7 +93,8 @@ module.exports = {
       'react-pages': path.join(process.cwd(), '/src/Containers'),
       'react-ui': path.join(__dirname, '../src/Components'),
       'Utils': path.join(__dirname, '../src/Utils'),
-      'Config': path.join(__dirname, '../src/Config'),
+      'react-config': path.join(__dirname, '../src/Configs'),
+
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
