@@ -11,6 +11,7 @@
 
  * 要是使用context，必须定义contextTypes   
  * 使用context访问的属性，必须是contextTypes里面的属性  
+ * 调用方法：this.context.属性名
 
 
 #### 在这里说两种写法：
@@ -112,7 +113,6 @@ Dfa.wrappedComponent.childContextTypes = {
 		name: React.PropTypes.string.isRequired,
 		age:React.PropTypes.number,
         fn: React.PropTypes.func,
-      
 }
 
 ```

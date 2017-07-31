@@ -1,14 +1,14 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import Child from './child';
-// @inject("WelComeModel")
-// @observer
+@inject("WelComeModel")
+@observer
 export default class Dfa extends React.Component {
- 	static childContextTypes= {
-	         name: React.PropTypes.string.isRequired,
-	         age: React.PropTypes.number,
-	         fn: React.PropTypes.func
-	   }
+ 	// static childContextTypes= {
+	 //         name: React.PropTypes.string.isRequired,
+	 //         age: React.PropTypes.number,
+	 //         fn: React.PropTypes.func
+	 //   }
  	
  	getChildContext() {
         return {
@@ -29,9 +29,10 @@ export default class Dfa extends React.Component {
 	   );
 	}
 }
-// Dfa.wrappedComponent.childContextTypes = {
-// 		name: React.PropTypes.string.isRequired,
-// 		age:React.PropTypes.number,
-//         fn: React.PropTypes.func,
+
+Dfa.wrappedComponent.childContextTypes = {
+		name: React.PropTypes.string.isRequired,
+		age:React.PropTypes.number,
+        fn: React.PropTypes.func,
       
-// }
+}
