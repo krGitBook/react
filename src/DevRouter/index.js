@@ -6,7 +6,8 @@ import {
   Undefined,
   Lyh,
   Dfa,
-  Slider
+  Slider,
+  Wsl
 } from 'react-pages';
 import {
 	Paper,
@@ -22,15 +23,15 @@ export default class DevRouter extends React.Component{
       console.log(Router,"KKK")
 	    return (
         <div className = "ui-react-box">
-          
-          
+
+
             <Paper className = "ui-react-left">
               <Logo></Logo>
               <List><Link to="/">Home</Link></List>
               <List><Link to="/news">About</Link></List>
             </Paper>
-         
-          <div className = "ui-react-content"> 
+
+          <div className = "ui-react-content">
             <Hander title = "首页"/>
             <div className = "ui-react-right-content">
               <Switch>
@@ -38,6 +39,7 @@ export default class DevRouter extends React.Component{
                 <Route path="/news" component={Initialize} />
                 <Route path="/demo/lyh" component={Lyh} />
                 <Route path="/demo/dfa" component={Dfa} />
+                <Route path="/demo/wsl" component={Wsl} />
                 <Route component={Undefined} />
               </Switch>
             </div>

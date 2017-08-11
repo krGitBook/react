@@ -6,6 +6,7 @@ import Logo from './Logo';
 import Hander from './Hander';
 import GitHub from './GitHub';
 import Search from './Search';
+import CheckBox from './CheckBox';
 
 module.exports = {
 	Clamp,
@@ -15,6 +16,6 @@ module.exports = {
 	Hander,
 	GitHub,
 	Search,
+	CheckBox,
 	...Tabs
 }
-
