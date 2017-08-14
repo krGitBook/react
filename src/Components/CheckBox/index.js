@@ -5,12 +5,14 @@ export default class CheckBox extends React.Component {
   constructor(props,context){
   super(props, context);
       this.state = {
-          writeIn:this.props.value
+          writeIn:this.props.value,
       }
   }
 
   checkChange=(event,item)=>{
+
      if(event.target.checked){
+
        const {onChange}=this.props;
        onChange && onChange(item);
      }

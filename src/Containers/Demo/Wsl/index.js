@@ -22,8 +22,8 @@ export default class Wsl extends React.Component{
        <div>
          <CheckBox
               value={[{
-                type:'float',
-                label:'left'
+                  type:'float',
+                  label:'left'
                 },
                 {
                   type:'float',
