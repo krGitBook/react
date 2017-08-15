@@ -39,11 +39,11 @@ export default class Tab extends React.Component {
             v=-v;
             a = -a
         }
-        
+
         if(type!=0){
             interval=setInterval(()=>{
                 // console.log(x,"LLLLL")
-                
+
                 x+=v;
                 this.box.style.marginLeft = x+"px";
                 let nowLocation = Number(this.box.style.marginLeft.split("p")[0]);
@@ -56,7 +56,7 @@ export default class Tab extends React.Component {
                     this.box.style.marginLeft = endLocation+"px"
                     clearInterval(interval);
                 }
-                
+
                 if(type<0 && nowLocation<=endLocation){
                     this.box.style.marginLeft = endLocation+"px"
                     clearInterval(interval);
@@ -68,9 +68,9 @@ export default class Tab extends React.Component {
         const {children} = this.props;
         const {showIndex,tabsWidth} = this.state;
         let tab = children.map((item,index)=>{
-            
+
             return <div key = {index} style={{display:"inline-block",width:tabsWidth}}>{item}</div>;
-            
+
         })
         return tab;
     }

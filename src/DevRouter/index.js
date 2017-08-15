@@ -6,7 +6,8 @@ import {
   Undefined,
   Lyh,
   Dfa,
-  Slider
+  Slider,
+  Wsl
 } from 'react-pages';
 import {
 	Paper,
@@ -78,6 +79,7 @@ export default class DevRouter extends React.Component{
                 <Route path="/news" component={Initialize} />
                 <Route path="/demo/lyh" component={Lyh} />
                 <Route path="/demo/dfa" component={Dfa} />
+                <Route path="/demo/wsl" component={Wsl} />
                 <Route component={Undefined} />
               </Switch>
             </div>

@@ -7,6 +7,7 @@ import Hander from './Hander';
 import GitHub from './GitHub';
 import Search from './Search';
 import ImageShear from './ImageShear';
+import CheckBox from './CheckBox';
 
 module.exports = {
 	Clamp,
@@ -17,6 +18,6 @@ module.exports = {
 	GitHub,
 	Search,
 	...Tabs,
-	ImageShear
+	ImageShear,
+	CheckBox
 }
-
