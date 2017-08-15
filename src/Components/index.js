@@ -6,6 +6,7 @@ import Logo from './Logo';
 import Hander from './Hander';
 import GitHub from './GitHub';
 import Search from './Search';
+import ImageShear from './ImageShear';
 
 module.exports = {
 	Clamp,
@@ -15,6 +16,7 @@ module.exports = {
 	Hander,
 	GitHub,
 	Search,
-	...Tabs
+	...Tabs,
+	ImageShear
 }
 

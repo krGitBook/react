@@ -16,21 +16,61 @@ import {
 } from "react-ui"
 import './index.less'
 import {Router} from 'react-config';
+var navs = [
+  {textValue:'首页',router:'/',component:Welcome},
+  {textValue:'关于',router:'/news',component:Initialize},
+  {textValue:'',router:'/demo/lyh',component:Lyh},
+  {textValue:'',router:'/demo/dfa',component:Dfa},
+]
 export default class DevRouter extends React.Component{
+    constructor(props,context){
+    super(props, context);
+          this.state = {
+              activeIndex:0,
+          }
+    }
+    click = (index) =>{
+      var activeIndex = index;
+      this.setState({
+        activeIndex
+      })
+    }
 
+    renderLink = () =>{
+      let {activeIndex} = this.state;
+      var list = navs.map((item,index)=>{
+
+          if(item.textValue){
+            return (
+                     <List className = "router-list" key = {index}>
+                          <Link to={item.router}
+                            onClick = {() =>{
+                              this.click(index);
+                            }}
+                            style = {{backgroundColor:activeIndex == index ? "#e0e0e0" : "rgba(255, 255, 255, 1)"}}
+                          >
+                            {item.textValue}
+                          </Link>
+                     </List>
+                   )
+          }
+
+
+      })
+        return list;
+    }
 	  render() {
-      console.log(Router,"KKK")
+
 	    return (
         <div className = "ui-react-box">
-          
-          
+
+
             <Paper className = "ui-react-left">
               <Logo></Logo>
-              <List><Link to="/">Home</Link></List>
-              <List><Link to="/news">About</Link></List>
+              {this.renderLink()}
             </Paper>
-         
-          <div className = "ui-react-content"> 
+
+          <div className = "ui-react-content">
             <Hander title = "首页"/>
             <div className = "ui-react-right-content">
               <Switch>
