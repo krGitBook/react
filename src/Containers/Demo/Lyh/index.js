@@ -10,7 +10,7 @@ export default class Lyh extends React.Component {
 
 		return (
 				<div style={{marginBottom:"50px"}}>
-					<ImageShear url = {imgData}/>
+					<ImageShear url = {imgData} height ="500" width = "500"/>
 				</div>
 	   );
 	}

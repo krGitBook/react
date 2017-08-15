@@ -1,23 +1,53 @@
 .image-shear{
-    .img-select-box{
-        position: relative;
-        width: 500px;
-        height: 500px;
-        overflow: hidden;
-        .move-box{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-left: -50px;
-            margin-top: -50px;
-            
-        }
-        img{
-            cursor: pointer;
-        }
-    }
+   position: relative;
+   display: inline-block;
     .move-box{
-        background: red;
+        position: relative;
         overflow: hidden;
+        background:#fff;
+        cursor: pointer;
+        img{
+            position: absolute;
+            background-color: rgba(0, 0, 0, .5)
+        }
     }
+   
+    canvas{
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+        z-index: 4;
+    }
+    .mask{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: .5;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+        cursor: pointer;
+    }
+    .mouse-target{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      
+  
+        top: 0px;
+        left: 0px;
+        z-index: 5;
+        cursor: pointer;
+    }
+}
+body {
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
 }
