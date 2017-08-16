@@ -24,11 +24,14 @@ export default class ImageShear extends React.Component {
         y:0,
       }
       //预览图片相对于框的位置
-      this.showImgData = {
+      this.canImgData = {
         x:0,
         y:0
       }
-      this.zoom = 1;
+      //
+      this.zoom = 0;
+      //宽高比
+      this.proportion = 1;
 
     }
     componentDidMount(){
@@ -47,6 +50,7 @@ export default class ImageShear extends React.Component {
       this.img.onload = function(event){
 
         that.imgDataSet(0,0,that.img.width,that.img.height);
+        that.proportion = that.floort(that.img.height/that.img.width);
         that.trget.addEventListener('mousedown',that.imgMousedown);
         that.trget.addEventListener('mouseup',that.imgMouseup);
         that.trget.addEventListener('mousemove',that.imgMouseMove);
@@ -74,12 +78,12 @@ export default class ImageShear extends React.Component {
 
     //canvas绘制
     canRander = () =>{
-      var zoom = this.zoom;
+     
       this.ctx.clearRect(0,0,this.myCanvas.width,this.myCanvas.height)
-      var x = Math.round(this.showImgData.x);
-      var y = Math.round(this.showImgData.y);
-      var w = Math.round(this.imgData.w*zoom);
-      var h = Math.round(this.imgData.h*zoom);
+      var x = Math.round(this.canImgData.x);
+      var y = Math.round(this.canImgData.y);
+      var w = Math.round(this.imgData.w);
+      var h = Math.round(this.imgData.h);
 
 
       this.ctx.drawImage(this.img,x,y,w,h);
@@ -123,8 +127,8 @@ export default class ImageShear extends React.Component {
      if(this.isDown){
       this.moveLocation(event);
       this.canRander();
-      this.showImgSet();
-      this.showImgRender();
+      this.canImgSet();
+      this.imgRender();
      }
 
     }
@@ -145,21 +149,31 @@ export default class ImageShear extends React.Component {
 
     }
     //背景图片的位置
-    showImgRender = () =>{
-      var zoom = this.zoom;
-      var x = Math.round(this.imgData.x/zoom);
-      var y = Math.round(this.imgData.y/zoom);
-      var w = Math.round(this.imgData.w*zoom);
-      var h = Math.round(this.imgData.h*zoom);
+    imgRender = () =>{
+      
+      var x = Math.round(this.imgData.x);
+      var y = Math.round(this.imgData.y);
+      var w = Math.round(this.imgData.w);
+      var h = Math.round(this.imgData.h);
       this.previewImg.style.left = x+"px";
       this.previewImg.style.top = y+"px";
       this.previewImg.style.width =  w+ "px";
       this.previewImg.style.height = h + "px";
     }
-    imgSet = () =>{
-      var imgData = Object.assign({},this.imgData)
-      var mouseInit = Object.assign({},this.mouseInit)
-
+    imgSet = (add) =>{
+      var zoom = add || 0;
+      
+      var imgData = Object.assign({},this.imgData);
+      var mouseInit = Object.assign({},this.mouseInit);
+      // var myCanvas = this.myCanvas.getBoundingClientRect();
+      // var previewImg = this.previewImg.getBoundingClientRect();
+      // var addW = zoom;
+      // var addH = (imgData.w+zoom)*this.proportion-imgData.h;
+      // var centerx = this.floort((myCanvas.left+myCanvas.width / 2 - previewImg.left));
+      // var centery = this.floort((myCanvas.top+myCanvas.height / 2 - previewImg.top));
+      // var movex =  this.floort(centerx / addW);
+      // var movey =  this.floort(centery / addH);
+      // console.log( this.floort(imgData.w),"PPPPP")
       this.imgData = {
         x: imgData.x + this.mouse.x - mouseInit.x,
         y: imgData.y + this.mouse.y - mouseInit.y,
@@ -167,12 +181,15 @@ export default class ImageShear extends React.Component {
         h:imgData.h
       }
     }
-    showImgSet = () =>{
+    floort = (number) =>{
+      return Math.round(number*1000)/1000
+    }
+    canImgSet = () =>{
       var myCanvas = this.myCanvas.getBoundingClientRect();
       var moveBox = this.moveBox.getBoundingClientRect();
       var previewImg = this.previewImg.getBoundingClientRect();
-      var zoom = this.zoom;
-      this.showImgData = {
+      
+      this.canImgData = {
         x:previewImg.left - myCanvas.left,
         y:previewImg.top - myCanvas.top ,
 
@@ -189,20 +206,20 @@ export default class ImageShear extends React.Component {
       })
     }
     addZoom = () =>{
-      this.zoom +=.2;
+      
 
-      this.imgSet();
+      this.imgSet(100);
 
-      this.showImgRender();
-      this.showImgSet();
+      this.imgRender();
+      this.canImgSet();
       this.canRander();
     }
     subZoom = () =>{
-      this.zoom -=.2;
-      this.imgSet();
+     
+      this.imgSet(-100);
 
-      this.showImgRender();
-      this.showImgSet();
+      this.imgRender();
+      this.canImgSet();
       this.canRander();
     }
 
