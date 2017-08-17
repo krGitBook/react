@@ -24,11 +24,11 @@ export default class ImageShear extends React.Component {
         y:0,
       }
       //预览图片相对于框的位置
-      this.showImgData = {
+      this.canImgData = {
         x:0,
         y:0
       }
-      this.zoom = 1;
+      this.zoom = 0;
 
     }
     componentDidMount(){
@@ -51,7 +51,8 @@ export default class ImageShear extends React.Component {
         that.trget.addEventListener('mouseup',that.imgMouseup);
         that.trget.addEventListener('mousemove',that.imgMouseMove);
         that.trget.addEventListener('mouseout',that.imgMouseOut);
-        that.trget.addEventListener('mouseover',that.imgMouseOver)
+        that.trget.addEventListener('mouseover',that.imgMouseOver);
+        that.canImgSet();
         that.canRander();
       }
 
@@ -74,13 +75,11 @@ export default class ImageShear extends React.Component {
 
     //canvas绘制
     canRander = () =>{
-      var zoom = this.zoom;
-      this.ctx.clearRect(0,0,this.myCanvas.width,this.myCanvas.height)
-      var x = Math.round(this.showImgData.x);
-      var y = Math.round(this.showImgData.y);
-      var w = Math.round(this.imgData.w*zoom);
-      var h = Math.round(this.imgData.h*zoom);
-
+      this.ctx.clearRect(0,0,this.myCanvas.width,this.myCanvas.height);
+      var x = Math.round(this.canImgData.x);
+      var y = Math.round(this.canImgData.y);
+      var w = Math.round(this.imgData.w);
+      var h = Math.round(this.imgData.h);
 
       this.ctx.drawImage(this.img,x,y,w,h);
     }
@@ -99,7 +98,6 @@ export default class ImageShear extends React.Component {
         x:event.pageX,
         y:event.pageY
       }
-
     }
     //鼠标离开canvas
     imgMouseOver = (event) =>{
@@ -107,7 +105,6 @@ export default class ImageShear extends React.Component {
         x:event.pageX,
         y:event.pageY
       }
-
     }
     //鼠标离开cannvas
     imgMouseOut = (event) =>{
@@ -121,12 +118,12 @@ export default class ImageShear extends React.Component {
     //鼠标移动
     imgMouseMove = (event) =>{
      if(this.isDown){
-      this.moveLocation(event);
-      this.canRander();
-      this.showImgSet();
-      this.showImgRender();
-     }
 
+      this.moveLocation(event);
+      this.imgRender();
+      this.canImgSet();
+      this.canRander();
+     }
     }
     //获取鼠标的坐标
     moveLocation = (event) =>{
@@ -145,17 +142,17 @@ export default class ImageShear extends React.Component {
 
     }
     //背景图片的位置
-    showImgRender = () =>{
-      var zoom = this.zoom;
-      var x = Math.round(this.imgData.x/zoom);
-      var y = Math.round(this.imgData.y/zoom);
-      var w = Math.round(this.imgData.w*zoom);
-      var h = Math.round(this.imgData.h*zoom);
+    imgRender = () =>{
+      var x = Math.round(this.imgData.x);
+      var y = Math.round(this.imgData.y);
+      var w = Math.round(this.imgData.w);
+      var h = Math.round(this.imgData.h);
       this.previewImg.style.left = x+"px";
       this.previewImg.style.top = y+"px";
       this.previewImg.style.width =  w+ "px";
       this.previewImg.style.height = h + "px";
     }
+
     imgSet = () =>{
       var imgData = Object.assign({},this.imgData)
       var mouseInit = Object.assign({},this.mouseInit)
@@ -167,18 +164,18 @@ export default class ImageShear extends React.Component {
         h:imgData.h
       }
     }
-    showImgSet = () =>{
+    canImgSet = () =>{
       var myCanvas = this.myCanvas.getBoundingClientRect();
-      var moveBox = this.moveBox.getBoundingClientRect();
       var previewImg = this.previewImg.getBoundingClientRect();
       var zoom = this.zoom;
-      this.showImgData = {
+      this.canImgData = {
         x:previewImg.left - myCanvas.left,
         y:previewImg.top - myCanvas.top ,
 
       }
 
     }
+
     clamp = () =>{
       const {url,width,height} = this.props;
       var moveBox = this.moveBox.getBoundingClientRect();
@@ -189,20 +186,43 @@ export default class ImageShear extends React.Component {
       })
     }
     addZoom = () =>{
-      this.zoom +=.2;
+      this.zoom =100;
+      var zoom = this.zoom;
+      var x = Math.round(this.imgData.x);
+      var y = Math.round(this.imgData.y);
+      var w = Math.round(this.imgData.w+zoom);
+      var h = Math.round(this.imgData.h+zoom);
+      this.previewImg.style.left = 0+"px";
+      this.previewImg.style.top = 0+"px";
+      this.previewImg.style.width =  w+ "px";
+      this.previewImg.style.height = h + "px";
+      this.imgData.h=h;
+      this.imgData.w=w;
+      this.imgData.x=x;
+      this.imgData.y=y;
 
-      this.imgSet();
-
-      this.showImgRender();
-      this.showImgSet();
+      this.canImgSet();
       this.canRander();
     }
-    subZoom = () =>{
-      this.zoom -=.2;
-      this.imgSet();
 
-      this.showImgRender();
-      this.showImgSet();
+
+    subZoom = () =>{
+      this.zoom =-100;
+      var zoom = this.zoom;
+      var x = Math.round(this.imgData.x);
+      var y = Math.round(this.imgData.y);
+      var w = Math.round(this.imgData.w+zoom);
+      var h = Math.round(this.imgData.h+zoom);
+      this.previewImg.style.left = x+"px";
+      this.previewImg.style.top = y+"px";
+      this.previewImg.style.width =  w+ "px";
+      this.previewImg.style.height = h + "px";
+      this.imgData.h=h;
+      this.imgData.w=w;
+      this.imgData.x=x;
+      this.imgData.y=y;
+
+      this.canImgSet();
       this.canRander();
     }
 
