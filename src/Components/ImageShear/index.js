@@ -185,41 +185,34 @@ export default class ImageShear extends React.Component {
     //滚轮事件
     scoll = (event) =>{
       
-      var zoom = 0
+      var zoom = 0;
+      var previewImg = this.previewImg.getBoundingClientRect();
       if(event.wheelDelta>0){
-       
         zoom = 50;
       }else{
         zoom = -50;
-       
-        
       }
-      this.setZoom(zoom)
+      var centerx = this.floort(event.pageX - previewImg.left);
+      var centery = this.floort(event.pageY - previewImg.top);
+      this.setZoom(zoom,{x:centerx,y:centery})
       this.imgRender();
       this.canImgSet();
       this.canRander();
 
     }
-    setZoom = (num) =>{
+    setZoom = (num,location) =>{
       var zoom = num;
       var imgData = Object.assign({},this.imgData);
-      // // var myCanvas = this.myCanvas.getBoundingClientRect();
-      // // var previewImg = this.previewImg.getBoundingClientRect();
       var addW = zoom;
       var addH = (imgData.w+zoom)*this.proportion-imgData.h;
-      // var centerx = this.floort((myCanvas.left+myCanvas.width / 2 - previewImg.left));
-      // var centery = this.floort((myCanvas.top+myCanvas.height / 2 - previewImg.top));
-      // var movex =  this.floort(centerx / addW);
-      // var movey =  this.floort(centery / addH);
+      var movex =  this.floort(location.x / (imgData.w))*zoom;
+      var movey =  this.floort(location.y / (imgData.h))*zoom;
       this.imgData = {
-        x:imgData.x,
-        y:imgData.y,
+        x:imgData.x-movex,
+        y:imgData.y-movex,
         w:imgData.w+addW,
         h:imgData.h+addH,
-        mx:imgData.mx,
-        my:imgData.my
       }
-   
     }
     floort = (number) =>{
       return Math.round(number*1000)/1000
@@ -228,13 +221,10 @@ export default class ImageShear extends React.Component {
       var myCanvas = this.myCanvas.getBoundingClientRect();
       var moveBox = this.moveBox.getBoundingClientRect();
       var previewImg = this.previewImg.getBoundingClientRect();
-      
       this.canImgData = {
         x:previewImg.left - myCanvas.left,
         y:previewImg.top - myCanvas.top ,
-
       }
-
     }
     clamp = () =>{
       const {url,width,height} = this.props;
@@ -246,16 +236,23 @@ export default class ImageShear extends React.Component {
       })
     }
     addZoom = () =>{
-      this.setZoom(100)
-
+      var myCanvas = this.myCanvas.getBoundingClientRect();
+      var previewImg = this.previewImg.getBoundingClientRect();
+      var centerx = this.floort(myCanvas.left+myCanvas.width / 2 - previewImg.left);
+      var centery = this.floort(myCanvas.top+myCanvas.height / 2 - previewImg.top);
+      this.setZoom(100,{x:centerx,y:centery})
+      
       this.imgRender();
       this.canImgSet();
       this.canRander();
     }
     subZoom = () =>{
+      var myCanvas = this.myCanvas.getBoundingClientRect();
+      var previewImg = this.previewImg.getBoundingClientRect();
+      var centerx = this.floort(myCanvas.left+myCanvas.width / 2 - previewImg.left);
+      var centery = this.floort(myCanvas.top+myCanvas.height / 2 - previewImg.top);
      
-      this.setZoom(-100);
-
+      this.setZoom(-100,{x:centerx,y:centery})
       this.imgRender();
       this.canImgSet();
       this.canRander();
