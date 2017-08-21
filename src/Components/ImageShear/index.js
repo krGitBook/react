@@ -12,7 +12,9 @@ export default class ImageShear extends React.Component {
         x:0,
         y:0,
         w:0,
-        h:0
+        h:0,
+        mx:0,
+        my:0,
       }
       this.img = null;
       this.mouse = {
@@ -28,7 +30,10 @@ export default class ImageShear extends React.Component {
         x:0,
         y:0
       }
+      //
       this.zoom = 0;
+      //宽高比
+      this.proportion = 1;
 
     }
     componentDidMount(){
@@ -47,11 +52,16 @@ export default class ImageShear extends React.Component {
       this.img.onload = function(event){
 
         that.imgDataSet(0,0,that.img.width,that.img.height);
+        that.proportion = that.floort(that.img.height/that.img.width);
         that.trget.addEventListener('mousedown',that.imgMousedown);
         that.trget.addEventListener('mouseup',that.imgMouseup);
         that.trget.addEventListener('mousemove',that.imgMouseMove);
         that.trget.addEventListener('mouseout',that.imgMouseOut);
-        that.trget.addEventListener('mouseover',that.imgMouseOver);
+        that.trget.addEventListener('mouseover',that.imgMouseOver)
+        that.trget.addEventListener('mousewheel',that.scoll)
+        // that.trget.onscroll = function(){
+        //   console.log("OOOO")
+        // };
         that.canImgSet();
         that.canRander();
       }
@@ -75,14 +85,18 @@ export default class ImageShear extends React.Component {
 
     //canvas绘制
     canRander = () =>{
-      this.ctx.clearRect(0,0,this.myCanvas.width,this.myCanvas.height);
+
+      this.ctx.clearRect(0,0,this.myCanvas.width,this.myCanvas.height)
+
       var x = Math.round(this.canImgData.x);
       var y = Math.round(this.canImgData.y);
       var w = Math.round(this.imgData.w);
       var h = Math.round(this.imgData.h);
 
+
       this.ctx.drawImage(this.img,x,y,w,h);
     }
+
     //鼠标按下
     imgMousedown = (event) =>{
       this.isDown = true;
@@ -123,12 +137,11 @@ export default class ImageShear extends React.Component {
       this.imgRender();
       this.canImgSet();
       this.canRander();
+
      }
     }
     //获取鼠标的坐标
     moveLocation = (event) =>{
-
-
       this.mouse = {
           x:event.pageX,
           y:event.pageY
@@ -154,26 +167,65 @@ export default class ImageShear extends React.Component {
     }
 
     imgSet = () =>{
-      var imgData = Object.assign({},this.imgData)
-      var mouseInit = Object.assign({},this.mouseInit)
+      var imgData = Object.assign({},this.imgData);
+      var mouseInit = Object.assign({},this.mouseInit);
 
+      var movex = this.mouse.x - mouseInit.x;
+      var movey= this.mouse.y - mouseInit.y;
       this.imgData = {
-        x: imgData.x + this.mouse.x - mouseInit.x,
-        y: imgData.y + this.mouse.y - mouseInit.y,
+        x: imgData.x + movex ,
+        y: imgData.y + movey,
         w:imgData.w,
-        h:imgData.h
+        h:imgData.h,
+        mx:movex,
+        my:movey
+
       }
     }
+    //滚轮事件
+    scoll = (event) =>{
+
+      var zoom = 0;
+      var previewImg = this.previewImg.getBoundingClientRect();
+      if(event.wheelDelta>0){
+        zoom = 50;
+      }else{
+        zoom = -50;
+      }
+      var centerx = this.floort(event.pageX - previewImg.left);
+      var centery = this.floort(event.pageY - previewImg.top);
+      this.setZoom(zoom,{x:centerx,y:centery})
+      this.imgRender();
+      this.canImgSet();
+      this.canRander();
+
+    }
+    setZoom = (num,location) =>{
+      var zoom = num;
+      var imgData = Object.assign({},this.imgData);
+      var addW = zoom;
+      var addH = (imgData.w+zoom)*this.proportion-imgData.h;
+      var movex =  this.floort(location.x / (imgData.w))*zoom;
+      var movey =  this.floort(location.y / (imgData.h))*zoom;
+      this.imgData = {
+        x:imgData.x-movex,
+        y:imgData.y-movex,
+        w:imgData.w+addW,
+        h:imgData.h+addH,
+      }
+    }
+
+    floort = (number) =>{
+      return Math.round(number*1000)/1000
+    }
+
     canImgSet = () =>{
       var myCanvas = this.myCanvas.getBoundingClientRect();
       var previewImg = this.previewImg.getBoundingClientRect();
-      var zoom = this.zoom;
       this.canImgData = {
         x:previewImg.left - myCanvas.left,
         y:previewImg.top - myCanvas.top ,
-
       }
-
     }
 
     clamp = () =>{
@@ -186,42 +238,26 @@ export default class ImageShear extends React.Component {
       })
     }
     addZoom = () =>{
-      this.zoom =100;
-      var zoom = this.zoom;
-      var x = Math.round(this.imgData.x);
-      var y = Math.round(this.imgData.y);
-      var w = Math.round(this.imgData.w+zoom);
-      var h = Math.round(this.imgData.h+zoom);
-      this.previewImg.style.left = 0+"px";
-      this.previewImg.style.top = 0+"px";
-      this.previewImg.style.width =  w+ "px";
-      this.previewImg.style.height = h + "px";
-      this.imgData.h=h;
-      this.imgData.w=w;
-      this.imgData.x=x;
-      this.imgData.y=y;
+      var myCanvas = this.myCanvas.getBoundingClientRect();
+      var previewImg = this.previewImg.getBoundingClientRect();
+      var centerx = this.floort(myCanvas.left+myCanvas.width / 2 - previewImg.left);
+      var centery = this.floort(myCanvas.top+myCanvas.height / 2 - previewImg.top);
+      this.setZoom(100,{x:centerx,y:centery})
 
+      this.imgRender();
       this.canImgSet();
       this.canRander();
     }
 
 
     subZoom = () =>{
-      this.zoom =-100;
-      var zoom = this.zoom;
-      var x = Math.round(this.imgData.x);
-      var y = Math.round(this.imgData.y);
-      var w = Math.round(this.imgData.w+zoom);
-      var h = Math.round(this.imgData.h+zoom);
-      this.previewImg.style.left = x+"px";
-      this.previewImg.style.top = y+"px";
-      this.previewImg.style.width =  w+ "px";
-      this.previewImg.style.height = h + "px";
-      this.imgData.h=h;
-      this.imgData.w=w;
-      this.imgData.x=x;
-      this.imgData.y=y;
+      var myCanvas = this.myCanvas.getBoundingClientRect();
+      var previewImg = this.previewImg.getBoundingClientRect();
+      var centerx = this.floort(myCanvas.left+myCanvas.width / 2 - previewImg.left);
+      var centery = this.floort(myCanvas.top+myCanvas.height / 2 - previewImg.top);
 
+      this.setZoom(-100,{x:centerx,y:centery})
+      this.imgRender();
       this.canImgSet();
       this.canRander();
     }
