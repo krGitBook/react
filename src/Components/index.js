@@ -9,7 +9,8 @@ import Search from './Search';
 import ImageShear from './ImageShear';
 import CheckBox from './CheckBox';
 import ImageClamp from './ImageClamp';
-
+import Toolbars from './Toolbars';
+import Toolbar from './Toolbar';
 
 module.exports = {
 	Clamp,
@@ -22,5 +23,7 @@ module.exports = {
 	...Tabs,
 	ImageShear,
 	CheckBox,
-	ImageClamp
+	ImageClamp,
+	Toolbars,
+	Toolbar
 }
