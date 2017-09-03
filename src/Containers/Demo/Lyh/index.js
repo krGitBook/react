@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-	ImageShear
+	ImageShear,
+	ImageClamp
 } from 'react-ui';
 import imgData from './images/demo.jpg';
 console.log(imgData,"PPPPPP")
@@ -10,7 +11,7 @@ export default class Lyh extends React.Component {
 
 		return (
 				<div style={{marginBottom:"50px"}}>
-					<ImageShear url = {imgData} height ="200" width = "200"/>
+					<ImageClamp />
 				</div>
 	   );
 	}

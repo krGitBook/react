@@ -8,6 +8,8 @@ import GitHub from './GitHub';
 import Search from './Search';
 import ImageShear from './ImageShear';
 import CheckBox from './CheckBox';
+import ImageClamp from './ImageClamp';
+
 
 module.exports = {
 	Clamp,
@@ -19,5 +21,6 @@ module.exports = {
 	Search,
 	...Tabs,
 	ImageShear,
-	CheckBox
+	CheckBox,
+	ImageClamp
 }
