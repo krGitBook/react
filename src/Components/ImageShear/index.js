@@ -237,6 +237,7 @@ export default class ImageShear extends React.Component {
         data:this.myCanvas.toDataURL()
       })
     }
+    
     addZoom = () =>{
       var myCanvas = this.myCanvas.getBoundingClientRect();
       var previewImg = this.previewImg.getBoundingClientRect();

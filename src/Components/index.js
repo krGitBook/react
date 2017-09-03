@@ -8,6 +8,8 @@ import GitHub from './GitHub';
 import Search from './Search';
 import ImageShear from './ImageShear';
 import CheckBox from './CheckBox';
+import Toolbars from './Toolbars';
+import Toolbar from './Toolbar';
 
 module.exports = {
 	Clamp,
@@ -19,5 +21,7 @@ module.exports = {
 	Search,
 	...Tabs,
 	ImageShear,
-	CheckBox
+	CheckBox,
+	Toolbars,
+	Toolbar
 }

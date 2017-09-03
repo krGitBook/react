@@ -1,7 +1,9 @@
 import React from 'react';
 import './index.less';
 import {
-  CheckBox
+  CheckBox,
+  Toolbar,
+  Toolbars
 } from 'react-ui';
 export default class Wsl extends React.Component{
 
@@ -13,6 +15,12 @@ export default class Wsl extends React.Component{
   onChange=(param)=>{
     console.log('ffff',param);
   }
+  
+
+  editClick=()=>{
+    console.log('wedit');
+  }
+
 
   render() {
 
@@ -20,7 +28,7 @@ export default class Wsl extends React.Component{
      return (
 
        <div>
-         <CheckBox
+         {/*<CheckBox
               value={[{
                   type:'float',
                   label:'left'
@@ -31,7 +39,16 @@ export default class Wsl extends React.Component{
                 },
               ]}
              onChange={this.onChange}
-         />
+         />*/}
+
+
+           <Toolbars>
+
+               <Toolbar label='编辑' iconClass='edit-wrap' propsClick={this.editClick} />
+
+           </Toolbars>
+
+
        </div>
      )
    }
