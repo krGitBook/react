@@ -10,6 +10,7 @@ import ImageShear from './ImageShear';
 import CheckBox from './CheckBox';
 import Toolbars from './Toolbars';
 import Toolbar from './Toolbar';
+import GoText from './GoText';
 
 module.exports = {
 	Clamp,
@@ -23,5 +24,6 @@ module.exports = {
 	ImageShear,
 	CheckBox,
 	Toolbars,
-	Toolbar
+	Toolbar,
+	GoText
 }

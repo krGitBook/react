@@ -3,7 +3,8 @@ import './index.less';
 import {
   CheckBox,
   Toolbar,
-  Toolbars
+  Toolbars,
+  GoText
 } from 'react-ui';
 export default class Wsl extends React.Component{
 
@@ -48,6 +49,11 @@ export default class Wsl extends React.Component{
 
            </Toolbars>
 
+           
+           
+           <GoText>
+              <span>ruwrhtgrshgjrhgjdfhgjdfhgdghdjfhgjdfhgjdfhjdfhgjdfhjgdfjgdfjdffdjsfhjsfh</span>
+           </GoText>
 
        </div>
      )
