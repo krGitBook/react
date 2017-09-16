@@ -11,6 +11,7 @@ import CheckBox from './CheckBox';
 import ImageClamp from './ImageClamp';
 import Toolbars from './Toolbars';
 import Toolbar from './Toolbar';
+import MoveImage from './MoveImage';
 
 module.exports = {
 	Clamp,
@@ -25,5 +26,6 @@ module.exports = {
 	CheckBox,
 	ImageClamp,
 	Toolbars,
-	Toolbar
+	Toolbar,
+	MoveImage
 }
