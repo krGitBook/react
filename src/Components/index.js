@@ -12,6 +12,7 @@ import ImageClamp from './ImageClamp';
 import Toolbars from './Toolbars';
 import Toolbar from './Toolbar';
 import MoveImage from './MoveImage';
+import GoText from './GoText';
 
 module.exports = {
 	Clamp,
@@ -27,5 +28,6 @@ module.exports = {
 	ImageClamp,
 	Toolbars,
 	Toolbar,
-	MoveImage
+	MoveImage,
+	GoText
 }
