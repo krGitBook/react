@@ -15,7 +15,6 @@ export default class MoveImage extends React.Component {
         var mouseY = event.pageY;
         var ageX = 30*(mouseX - contentX )/halfX;
         var ageY = 30*(contentY - mouseY)/halfY;
-        console.log(ageX,ageY,"PPPPP")
         this.moveImage.style.transform= `perspective(600px) rotateY(${ageX}deg) rotateX(${ageY}deg)`;
         
     }
