@@ -7,7 +7,8 @@ import {
   Lyh,
   Dfa,
   Slider,
-  Wsl
+  Wsl,
+  Communication
 } from 'react-pages';
 import {
 	Paper,
@@ -22,6 +23,7 @@ var navs = [
   {textValue:'关于',router:'/news',component:Initialize},
   {textValue:'',router:'/demo/lyh',component:Lyh},
   {textValue:'',router:'/demo/dfa',component:Dfa},
+  {textValue:'通信',router:'/summedUp/communication',component:Dfa},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -80,6 +82,8 @@ export default class DevRouter extends React.Component{
                 <Route path="/demo/lyh" component={Lyh} />
                 <Route path="/demo/dfa" component={Dfa} />
                 <Route path="/demo/wsl" component={Wsl} />
+                <Route path="/summedUp/communication" component={Communication} />
+                
                 <Route component={Undefined} />
               </Switch>
             </div>
