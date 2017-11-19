@@ -58,3 +58,14 @@ function computeStyle(elem, prop) {
 
 		 return window.getComputedStyle(elem, null).getPropertyValue(prop);
  }
+ //监听事件的兼容
+ function addEvent(obj,xEvent,fn) {  
+    if(obj.attachEvent){  
+      obj.attachEvent('on'+xEvent,fn);  
+    }else{  
+      obj.addEventListener(xEvent,fn,false);  
+    }  
+}  
+ module.exports = {
+	addEvent
+ }  
