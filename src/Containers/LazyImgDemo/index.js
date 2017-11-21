@@ -16,7 +16,7 @@ export default class LazyImgDemo extends React.Component{
     }
     imgLoad = () =>{
        for (let index = 0; index <100; index++) {
-           const element = this.imgElems[index];
+           const element = this.imgElems[index].lazyImg;
            let elemDetail = element.getBoundingClientRect();
          
            if(this.demoDetail.bottom >elemDetail.top){
@@ -48,7 +48,7 @@ export default class LazyImgDemo extends React.Component{
                 <LazyImg 
                     key = {i} 
                     ref = {(ref) =>{
-                        this.imgElems[i] = ref.lazyImg;
+                        this.imgElems[i] = ref;
                     }}
                     listenId = {elem} 
                 />

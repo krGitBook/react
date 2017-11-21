@@ -28,7 +28,7 @@ export default class LazyImg extends React.Component {
                         this.lazyImg = ref;
                     }}
                     
-                    src = "" data-actualsrc = "https://pic3.zhimg.com/50/8bd81ec34dcada835e2963cda555c83e_hd.jpg" />
+                    src = "" data-actualsrc = "http://h.hiphotos.baidu.com/image/pic/item/d50735fae6cd7b89d9959dc8042442a7d8330efb.jpg" />
             </div>
 		);
 
