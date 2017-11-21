@@ -8,7 +8,8 @@ import {
   Dfa,
   Slider,
   Wsl,
-  Communication
+  Communication,
+  LazyImgDemo
 } from 'react-pages';
 import {
 	Paper,
@@ -24,6 +25,7 @@ var navs = [
   {textValue:'',router:'/demo/lyh',component:Lyh},
   {textValue:'',router:'/demo/dfa',component:Dfa},
   {textValue:'通信',router:'/summedUp/communication',component:Dfa},
+  {textValue:'高斯模糊效果',router:'/lazyImgDemo',component:LazyImgDemo},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -83,6 +85,7 @@ export default class DevRouter extends React.Component{
                 <Route path="/demo/dfa" component={Dfa} />
                 <Route path="/demo/wsl" component={Wsl} />
                 <Route path="/summedUp/communication" component={Communication} />
+                <Route path="/lazyImgDemo" component={LazyImgDemo} />
                 
                 <Route component={Undefined} />
               </Switch>
