@@ -2,10 +2,13 @@ import React from 'react';
 import './index.less';
 export default class Menu extends React.Component {
 
-    static displayName = 'GoText';
+    static displayName = 'Menu';
 
     static propTypes = {
-
+        children: React.PropTypes.node,
+        title: React.PropTypes.node,
+        subHeight: React.PropTypes.string,
+        style: React.PropTypes.object
     }
 
 
