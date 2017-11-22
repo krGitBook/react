@@ -3,9 +3,9 @@ export default class Toolbars extends React.Component{
 
 	static displayName = 'Toolbars';
 
-	static propTypes = {
-		children: React.PropTypes.node,
-	}
+	// static propTypes = {
+	// 	children: React.PropTypes.node,
+	// }
 
 	constructor(props){
 		super(props);
