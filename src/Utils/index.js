@@ -5,6 +5,6 @@ import PublicFn from './PublicFn';
 module.exports = {
 	clamp,
 	Http,
-	PublicFn
+	...PublicFn
 }
 

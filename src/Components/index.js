@@ -16,6 +16,7 @@ import GoText from './GoText';
 import LazyImg from './LazyImg';
 import Tooltip from "./Tooltip";
 import Menu from './Menu';
+import ButtonBase from './ButtonBase';
 
 module.exports = {
 	Clamp,
@@ -35,5 +36,6 @@ module.exports = {
 	GoText,
 	LazyImg,
 	Tooltip,
-	Menu
+	Menu,
+	ButtonBase
 }

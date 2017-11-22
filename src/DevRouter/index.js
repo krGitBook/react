@@ -11,7 +11,8 @@ import {
   Communication,
   LazyImgDemo,
   TooltipDemo,
-  MenuDemo
+  MenuDemo,
+  ButtonBaseDemo
 } from 'react-pages';
 import {
 	Paper,
@@ -30,6 +31,7 @@ var navs = [
   {textValue:'高斯模糊效果',router:'/lazyImgDemo',component:LazyImgDemo},
   {textValue:'气泡案例',router:'/tooltipDemo',component:TooltipDemo},
   {textValue:'导航菜单',router:'/menuDemo',component:MenuDemo},
+  {textValue:'点击水纹效果',router:'/buttonBaseDemo',component:ButtonBaseDemo},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -92,6 +94,7 @@ export default class DevRouter extends React.Component{
                 <Route path="/lazyImgDemo" component={LazyImgDemo} />
                 <Route path="/tooltipDemo" component={TooltipDemo} />
                 <Route path="/menuDemo" component={MenuDemo} />
+                <Route path="/buttonBaseDemo" component={ButtonBaseDemo} />
                 
                 <Route component={Undefined} />
               </Switch>

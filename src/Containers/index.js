@@ -8,6 +8,7 @@ import SummedUp from './SummedUp';
 import LazyImgDemo from './LazyImgDemo';
 import TooltipDemo from './TooltipDemo';
 import MenuDemo from './MenuDemo';
+import ButtonBaseDemo from './ButtonBaseDemo';
 
 
 // export default Welcome ;
@@ -22,6 +23,7 @@ module.exports = {
 	...SummedUp,
 	LazyImgDemo,
 	TooltipDemo,
-	MenuDemo
+	MenuDemo,
+	ButtonBaseDemo
 }
 
