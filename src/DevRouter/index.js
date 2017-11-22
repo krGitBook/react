@@ -9,7 +9,9 @@ import {
   Slider,
   Wsl,
   Communication,
-  LazyImgDemo
+  LazyImgDemo,
+  TooltipDemo,
+  MenuDemo
 } from 'react-pages';
 import {
 	Paper,
@@ -26,6 +28,8 @@ var navs = [
   {textValue:'',router:'/demo/dfa',component:Dfa},
   {textValue:'通信',router:'/summedUp/communication',component:Dfa},
   {textValue:'高斯模糊效果',router:'/lazyImgDemo',component:LazyImgDemo},
+  {textValue:'气泡案例',router:'/tooltipDemo',component:TooltipDemo},
+  {textValue:'导航菜单',router:'/menuDemo',component:MenuDemo},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -76,7 +80,7 @@ export default class DevRouter extends React.Component{
             </Paper>
 
           <div className = "ui-react-content">
-            <Hander title = "首页"/>
+            <Hander title = "首页" />
             <div className = "ui-react-right-content">
               <Switch>
                 <Route exact path="/" component={Welcome} />
@@ -86,6 +90,8 @@ export default class DevRouter extends React.Component{
                 <Route path="/demo/wsl" component={Wsl} />
                 <Route path="/summedUp/communication" component={Communication} />
                 <Route path="/lazyImgDemo" component={LazyImgDemo} />
+                <Route path="/tooltipDemo" component={TooltipDemo} />
+                <Route path="/menuDemo" component={MenuDemo} />
                 
                 <Route component={Undefined} />
               </Switch>

@@ -14,6 +14,8 @@ import Toolbar from './Toolbar';
 import MoveImage from './MoveImage';
 import GoText from './GoText';
 import LazyImg from './LazyImg';
+import Tooltip from "./Tooltip";
+import Menu from './Menu';
 
 module.exports = {
 	Clamp,
@@ -31,5 +33,7 @@ module.exports = {
 	Toolbar,
 	MoveImage,
 	GoText,
-	LazyImg
+	LazyImg,
+	Tooltip,
+	Menu
 }
