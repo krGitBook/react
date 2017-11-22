@@ -26,8 +26,12 @@ export default class ButtonBase extends React.Component {
     const elem = event.target;
     let {baseHtml} = this.state;
     let radii = 100;
-    let content = elem.innerHTML;
+    // let content = elem.innerHTML;
     baseHtml.push(this.baseRender(radii));
+    console.log(baseHtml,"---")
+    this.setState({
+      baseHtml,
+    })
     /*纯js操作
      elem.innerHTML = content + this.baseRender(); 
      krAnimation('.base-html',{top:0,left:0,width:0,height:0},{top:-radii,left:-radii,height:2*radii,width:2*radii})
@@ -50,9 +54,9 @@ export default class ButtonBase extends React.Component {
 
      return (
 
-       <div className = "ui-buttton-base" onClick = {this.baseClick}>
-         {children}
-        
+       <div className = "ui-buttton-base" style = {{height:100,width:100,background:'red',overflow:'hidden'}} onClick = {this.baseClick}>
+          
+          {baseHtml}
        </div>
      )
    }
