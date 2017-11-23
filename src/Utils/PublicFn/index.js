@@ -79,13 +79,9 @@ function krAnimation(elems,startObj,endObj,time=30){
 			let elem = nodes[i];
 			let elemPosition = {};
 			for(let key in velocity){
-				elemPosition[key] = parseInt(elem.style[key]);
-			}
-			for(let key in velocity){
-				elem[key] = elemPosition[key] + velocity[key];
+				elem[key] = parseInt(elem.style[key]) + velocity[key];
 			}
 		}
-		
 	},time)
 
 }
@@ -93,6 +89,7 @@ function krAnimation(elems,startObj,endObj,time=30){
 function getNode(name){
 	return document.querySelectorAll(name);
 }
+
  module.exports = {
 	addEvent,
 	getNode,
