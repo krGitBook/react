@@ -7,6 +7,7 @@ export default class LittleItem extends React.Component {
 		super(props)
 	}
 
+
 	render() {
 
     let {label,children}=this.props;

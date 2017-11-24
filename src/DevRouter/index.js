@@ -10,7 +10,6 @@ import {
   Wsl,
   Communication,
   LazyImgDemo,
-
   CircleDemo,
   TooltipDemo,
   MenuDemo,

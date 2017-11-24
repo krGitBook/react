@@ -1,6 +1,6 @@
-.ui-wrap-process{
+.ui-wrap-line{
   background:#000;
-  .ui-time-process{
+  .ui-time-line{
     width:600px;
     border-left:2px solid #ccc;
     margin-left:20px;
@@ -11,15 +11,15 @@
 
 
 .time-item-process{
-   margin: 10px 0 10px;
-  .item-title-line{
+   margin: 10px 0;
+  .item-line{
     width:20px;
     height:2px;
     background:#ccc;
     display: inline-block;
     vertical-align: middle;
   }
-  .item-title{
+  .item-label{
     background:#ccc;
     border-radius: 4px;
     color: #131313;
@@ -53,10 +53,18 @@
 
   .little-detail{
      color:#fff;
-     font-size:12px;
-     line-height:22px;
-     margin-left:40px;
      padding-left:24px;
+     display:none;
+  }
+  .little-in{
+    display:block;
+    animation:mymove 5s linear;
   }
 
+}
+
+@keyframes mymove
+{
+  from {opacity:0;margin-left: 0;}
+  to {opacity:1;margin-left: 40px;}
 }

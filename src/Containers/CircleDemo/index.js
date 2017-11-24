@@ -1,9 +1,8 @@
 import React from 'react';
 import TimeItem from './TimeItem';
-import LittleItem from './LittleItem';
 import './index.less';
 
-export default class Time extends React.Component {
+export default class TimeLine extends React.Component {
 
 	constructor(props) {
 		super(props)
@@ -12,16 +11,15 @@ export default class Time extends React.Component {
 	render() {
 
 		return (
-				<div className='ui-wrap-process'>
-          <div className='ui-time-process'>
-             <TimeItem label='1954'></TimeItem>
-             <LittleItem label='世界简史'>
-                  世界未解之谜
-             </LittleItem>
-             <TimeItem label='1958'></TimeItem>
-             <LittleItem label='契诃夫'>
-                  契诃夫之秘密
-             </LittleItem>
+				<div className='ui-wrap-line'>
+          <div className='ui-time-line'>
+
+              <TimeItem label='1950'>
+                   <TimeItem label='1952'>
+                      123
+                   </TimeItem>
+              </TimeItem>
+
           </div>
 				</div>
 	   );

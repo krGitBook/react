@@ -7,14 +7,22 @@ export default class TimeItem extends React.Component {
 		super(props)
 	}
 
+	componentDidMount(){
+		 let {children}=this.props;
+		 console.log('children',children);
+	}
+
 	render() {
 
     let {label,children}=this.props;
 
 		return (
 				<div className='time-item-process'>
-				  <div className='item-title-line'></div>
-          <div className='item-title'>{label}</div>
+				  <div className='item-line'></div>
+          <div className='item-label'>{label}</div>
+					<div className='item-children'>
+					  {children}
+					</div>
 				</div>
 	   );
 	 }
