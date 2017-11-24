@@ -7,10 +7,6 @@ export default class TimeItem extends React.Component {
 		super(props)
 	}
 
-	componentDidMount(){
-		 let {children}=this.props;
-		 console.log('children',children);
-	}
 
 	render() {
 
@@ -18,11 +14,11 @@ export default class TimeItem extends React.Component {
 
 		return (
 				<div className='time-item-process'>
-				  <div className='item-line'></div>
-          <div className='item-label'>{label}</div>
+				    <div className='item-line'></div>
+                    <div className='item-label'>{label}</div>
 					<div className='item-children'>
 					  {children}
-					</div>
+				    </div>
 				</div>
 	   );
 	 }
