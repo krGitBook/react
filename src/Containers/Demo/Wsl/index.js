@@ -61,7 +61,14 @@ export default class Wsl extends React.Component{
   }*/
 
 
- tipClick=(event,item)=>{
+
+
+  componentDidMount(){
+
+  }
+  
+
+  tipClick=(event,item)=>{
    this.saveData=[];
    this.saveData.push(item)
    if(item.children&&item.children.length!=0){

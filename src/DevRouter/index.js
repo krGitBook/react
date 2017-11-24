@@ -9,7 +9,8 @@ import {
   Slider,
   Wsl,
   Communication,
-  LazyImgDemo
+  LazyImgDemo,
+  CircleDemo
 } from 'react-pages';
 import {
 	Paper,
@@ -26,6 +27,7 @@ var navs = [
   {textValue:'',router:'/demo/dfa',component:Dfa},
   {textValue:'通信',router:'/summedUp/communication',component:Dfa},
   {textValue:'高斯模糊效果',router:'/lazyImgDemo',component:LazyImgDemo},
+  {textValue:'时间轴',router:'/circleDemo',component:CircleDemo},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -86,7 +88,8 @@ export default class DevRouter extends React.Component{
                 <Route path="/demo/wsl" component={Wsl} />
                 <Route path="/summedUp/communication" component={Communication} />
                 <Route path="/lazyImgDemo" component={LazyImgDemo} />
-                
+                <Route path="/circleDemo" component={CircleDemo} />
+
                 <Route component={Undefined} />
               </Switch>
             </div>

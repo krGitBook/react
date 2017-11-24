@@ -5,8 +5,8 @@ import Initialize from './Initialize';
 import Demo from './Demo';
 import Slider from './Slider';
 import SummedUp from './SummedUp';
-import LazyImgDemo from './LazyImgDemo'
-
+import LazyImgDemo from './LazyImgDemo';
+import CircleDemo from './CircleDemo';
 
 // export default Welcome ;
 
@@ -18,6 +18,6 @@ module.exports = {
 	Slider,
 	...Demo,
 	...SummedUp,
-	LazyImgDemo
+	LazyImgDemo,
+	CircleDemo
 }
-
