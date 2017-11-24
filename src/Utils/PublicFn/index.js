@@ -65,7 +65,33 @@ function computeStyle(elem, prop) {
     }else{  
       obj.addEventListener(xEvent,fn,false);  
     }  
-}  
+}
+//动画函数
+function krAnimation(elems,startObj,endObj,time=30){
+	let nodes = getNode(elems);//获取所有的节点
+	let velocity = {}
+	for(let key in startObj){
+		velocity[key] = (endObj[key] - startObj[key])/time;
+
+	}
+	setInterval(()=>{
+		for(let i=0;i<nodes.length;i++){
+			let elem = nodes[i];
+			let elemPosition = {};
+			for(let key in velocity){
+				elem[key] = parseInt(elem.style[key]) + velocity[key];
+			}
+		}
+	},time)
+
+}
+//获取节点
+function getNode(name){
+	return document.querySelectorAll(name);
+}
+
  module.exports = {
-	addEvent
+	addEvent,
+	getNode,
+	krAnimation
  }  

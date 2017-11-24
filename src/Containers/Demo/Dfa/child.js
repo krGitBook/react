@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default class Child extends React.Component {
-	static contextTypes = {
-        name: React.PropTypes.string.isRequired,
-        fn: React.PropTypes.func,
-    }
+	// static contextTypes = {
+    //     name: React.PropTypes.string.isRequired,
+    //     fn: React.PropTypes.func,
+    // }
 	render() {
 
 		return (

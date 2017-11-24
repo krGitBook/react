@@ -7,6 +7,10 @@ import Slider from './Slider';
 import SummedUp from './SummedUp';
 import LazyImgDemo from './LazyImgDemo';
 import CircleDemo from './CircleDemo';
+import TooltipDemo from './TooltipDemo';
+import MenuDemo from './MenuDemo';
+import ButtonBaseDemo from './ButtonBaseDemo';
+
 
 // export default Welcome ;
 
@@ -19,5 +23,9 @@ module.exports = {
 	...Demo,
 	...SummedUp,
 	LazyImgDemo,
-	CircleDemo
+	CircleDemo,
+	TooltipDemo,
+	MenuDemo,
+	ButtonBaseDemo
+
 }

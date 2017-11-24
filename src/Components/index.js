@@ -8,12 +8,14 @@ import GitHub from './GitHub';
 import Search from './Search';
 import ImageShear from './ImageShear';
 import CheckBox from './CheckBox';
-import ImageClamp from './ImageClamp';
 import Toolbars from './Toolbars';
 import Toolbar from './Toolbar';
 import MoveImage from './MoveImage';
 import GoText from './GoText';
 import LazyImg from './LazyImg';
+import Tooltip from "./Tooltip";
+import Menu from './Menu';
+import ButtonBase from './ButtonBase';
 
 module.exports = {
 	Clamp,
@@ -26,10 +28,12 @@ module.exports = {
 	...Tabs,
 	ImageShear,
 	CheckBox,
-	ImageClamp,
 	Toolbars,
 	Toolbar,
 	MoveImage,
 	GoText,
-	LazyImg
+	LazyImg,
+	Tooltip,
+	Menu,
+	ButtonBase
 }

@@ -10,7 +10,12 @@ import {
   Wsl,
   Communication,
   LazyImgDemo,
-  CircleDemo
+
+  CircleDemo,
+  TooltipDemo,
+  MenuDemo,
+  ButtonBaseDemo
+
 } from 'react-pages';
 import {
 	Paper,
@@ -28,6 +33,9 @@ var navs = [
   {textValue:'通信',router:'/summedUp/communication',component:Dfa},
   {textValue:'高斯模糊效果',router:'/lazyImgDemo',component:LazyImgDemo},
   {textValue:'时间轴',router:'/circleDemo',component:CircleDemo},
+  {textValue:'气泡案例',router:'/tooltipDemo',component:TooltipDemo},
+  {textValue:'导航菜单',router:'/menuDemo',component:MenuDemo},
+  {textValue:'点击水纹效果',router:'/buttonBaseDemo',component:ButtonBaseDemo},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -78,7 +86,7 @@ export default class DevRouter extends React.Component{
             </Paper>
 
           <div className = "ui-react-content">
-            <Hander title = "首页"/>
+            <Hander title = "首页" />
             <div className = "ui-react-right-content">
               <Switch>
                 <Route exact path="/" component={Welcome} />
@@ -89,6 +97,10 @@ export default class DevRouter extends React.Component{
                 <Route path="/summedUp/communication" component={Communication} />
                 <Route path="/lazyImgDemo" component={LazyImgDemo} />
                 <Route path="/circleDemo" component={CircleDemo} />
+
+                <Route path="/tooltipDemo" component={TooltipDemo} />
+                <Route path="/menuDemo" component={MenuDemo} />
+                <Route path="/buttonBaseDemo" component={ButtonBaseDemo} />
 
                 <Route component={Undefined} />
               </Switch>
