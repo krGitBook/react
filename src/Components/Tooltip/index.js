@@ -4,11 +4,11 @@ export default class Tooltip extends React.Component{
 
 	static displayName = 'Tooltip';
 
-	static propTypes = {
-        children: React.PropTypes.node,
-        title: React.PropTypes.string,
-        maxLength: React.PropTypes.string,
-	}
+	// static propTypes = {
+    //     children: React.PropTypes.node,
+    //     title: React.PropTypes.string,
+    //     maxLength: React.PropTypes.string,
+	// }
 
 	constructor(props){
 		super(props);

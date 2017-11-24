@@ -8,12 +8,12 @@ import 'water-wave/style.css';
 export default class ButtonBase extends React.Component {
 	static displayName = 'ButtonBase';
 
-	static propTypes = {
-	  children: React.PropTypes.node,
-	  title: React.PropTypes.node,
-	  subHeight: React.PropTypes.string,
-	  style: React.PropTypes.object
-	}
+	// static propTypes = {
+	//   children: React.PropTypes.node,
+	//   title: React.PropTypes.node,
+	//   subHeight: React.PropTypes.string,
+	//   style: React.PropTypes.object
+	// }
 
   constructor(props,context){
     super(props, context);
