@@ -3,20 +3,22 @@ import './index.less';
 import {
   krAnimation
 } from 'Utils';
+import WaterWave from 'water-wave';
+import 'water-wave/style.css';
 export default class ButtonBase extends React.Component {
 	static displayName = 'ButtonBase';
 
-	// static propTypes = {
-	//   children: React.PropTypes.node,
-	//   title: React.PropTypes.node,
-	//   subHeight: React.PropTypes.string,
-	//   style: React.PropTypes.object
-	// }
+	static propTypes = {
+	  children: React.PropTypes.node,
+	  title: React.PropTypes.node,
+	  subHeight: React.PropTypes.string,
+	  style: React.PropTypes.object
+	}
 
   constructor(props,context){
     super(props, context);
     this.state ={
-        baseHtml : [],
+      radii : 0,
     }
     this.key = 0;
   }
@@ -26,39 +28,50 @@ export default class ButtonBase extends React.Component {
     const elem = event.target;
     let {baseHtml} = this.state;
     let radii = 100;
-    // let content = elem.innerHTML;
-    baseHtml.push(this.baseRender(radii));
-    console.log(baseHtml,"---")
+    // baseHtml.push(this.baseRender(radii));
     this.setState({
-      baseHtml,
+      radii,
     })
-    /*纯js操作
-     elem.innerHTML = content + this.baseRender(); 
-     krAnimation('.base-html',{top:0,left:0,width:0,height:0},{top:-radii,left:-radii,height:2*radii,width:2*radii})
-     */
-    
+    setTimeout(() => {
+      
+    }, 100);
   }
-  baseRender = (radii) =>{
-    //移动的距离
-    let moveDistance = Math.ceil(radii/2)
-    let baseLength = radii * 2;
-    return (<div className = "base-html" key = {this.key++} style = {{top:-radii,left:-radii,width:baseLength,height:baseLength}}></div>)
-    // return '<div class = "base-html"></div>'
+  setBaseStyle = (left,top,width,height) =>{
+    this.base.style.left = left + 'px';
   }
+  // baseRender = (radii) =>{
+  //   //移动的距离
+  //   let moveDistance = Math.ceil(radii/2)
+  //   let baseLength = radii * 2;
+  //   return (<div className = "base-html" key = {this.key++} style = {{top:-radii,left:-radii,width:baseLength,height:baseLength}}></div>)
+  // }
 
 
   render() {
     const {children} = this.props;
-    const {baseHtml} = this.state;
+    const { baseHtml, radii} = this.state;
+    let baseLength = radii * 2;     
 
-
-     return (
+    return (
+      <div>
+        <div className="btn">
+          按钮
+         <WaterWave color="#fff" duration={800} />
+        </div>
+      </div>
+    )
+     /*return (
 
        <div className = "ui-buttton-base" style = {{height:100,width:100,background:'red',overflow:'hidden'}} onClick = {this.baseClick}>
-          
-          {baseHtml}
+        {children}    
+        <div 
+          ref = {(ref)=>{
+            this.base = ref;
+          }}
+          className="base-html" 
+          style={{ top: -radii, left: -radii, width: baseLength, height: baseLength }}></div>
        </div>
-     )
+     )*/
    }
 
 }
