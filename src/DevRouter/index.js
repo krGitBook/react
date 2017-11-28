@@ -13,8 +13,8 @@ import {
   CircleDemo,
   TooltipDemo,
   MenuDemo,
-  ButtonBaseDemo
-
+  ButtonBaseDemo,
+  ProcessLine
 } from 'react-pages';
 import {
 	Paper,
@@ -32,6 +32,7 @@ var navs = [
   {textValue:'通信',router:'/summedUp/communication',component:Dfa},
   {textValue:'高斯模糊效果',router:'/lazyImgDemo',component:LazyImgDemo},
   {textValue:'时间轴',router:'/circleDemo',component:CircleDemo},
+  {textValue:'步骤条',router:'/processLine',component:ProcessLine},
   {textValue:'气泡案例',router:'/tooltipDemo',component:TooltipDemo},
   {textValue:'导航菜单',router:'/menuDemo',component:MenuDemo},
   {textValue:'点击水纹效果',router:'/buttonBaseDemo',component:ButtonBaseDemo},
@@ -96,7 +97,7 @@ export default class DevRouter extends React.Component{
                 <Route path="/summedUp/communication" component={Communication} />
                 <Route path="/lazyImgDemo" component={LazyImgDemo} />
                 <Route path="/circleDemo" component={CircleDemo} />
-
+                <Route path="/processLine" component={ProcessLine} />
                 <Route path="/tooltipDemo" component={TooltipDemo} />
                 <Route path="/menuDemo" component={MenuDemo} />
                 <Route path="/buttonBaseDemo" component={ButtonBaseDemo} />

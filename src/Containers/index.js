@@ -10,6 +10,7 @@ import CircleDemo from './CircleDemo';
 import TooltipDemo from './TooltipDemo';
 import MenuDemo from './MenuDemo';
 import ButtonBaseDemo from './ButtonBaseDemo';
+import ProcessLine from './ProcessLine';
 
 
 // export default Welcome ;
@@ -26,6 +27,7 @@ module.exports = {
 	CircleDemo,
 	TooltipDemo,
 	MenuDemo,
-	ButtonBaseDemo
+	ButtonBaseDemo,
+	ProcessLine
 
 }

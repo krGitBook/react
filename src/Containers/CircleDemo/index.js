@@ -14,15 +14,36 @@ export default class TimeLine extends React.Component {
 
 		return (
 				<div className='ui-wrap-line'>
-		          <div className='ui-time-line'>
+		          {/*<div className='ui-time-line'>
 
 		              <TimeItem label='1950'>
 		                   <LittleItem label='123'>
-		                      123wewew
+		                      <h3>123</h3>
+							  <p>fhhghfjhjdfhjbhdjfhbjdfhjbjdfbjdfjbdfjbkvdkvdvnvn
+								  jvjskvjksvnnjnjndjnvdnvndjbndnbnvbnbnnbndbnjdnbjv,
+								  nvjkndjbnjdnbj
+							  </p>
+		                   </LittleItem>
+						   <LittleItem label='67788'>
+		                      <h3>123--</h3>
+							  <p>fhhghfjhjdfhjbhdjfhbjdfhjbjdfbjdfjbdfjbkvdkvdvnvn
+								  jvjskvjksvnnjnjndjnvdnvndjbndnbnvbnbnnbndbnjdnbjv,
+								  nvjkndjbnjdnbj----
+							  </p>
 		                   </LittleItem>
 		              </TimeItem>
 
-		          </div>
+					  <TimeItem label='1951'>
+		                   <LittleItem label='mm'>
+		                      <h3>mm</h3>
+							  <p>fhhghfjhjdfhjbhdjfhbjdfhjbjdfbjdfjbdfjbkvdkvdvnvn
+								  jvjskvjksvnnjnjndjnvdnvndjbndnbnvbnbnnbndbnjdnbjv,
+								  nvjkndjbnjdnbj
+							  </p>
+		                   </LittleItem>
+		              </TimeItem>
+				  </div>*/}
+
 			   </div>
 	   );
 	}
