@@ -28,8 +28,10 @@ export default class ButtonBaseDemo extends React.Component{
 
 
                 <div style={{marginTop:'30px'}}>
-                  <Buttons label='redTheme'  onClick={this.btnClick} type='red'/>
+                  <Buttons label='redTheme'  onClick={this.btnClick} theme='red'/>
                   <Buttons label='primary'  onClick={this.btnClick}/>
+                  <Buttons label='disabed'  theme='red' type='disabled'/>
+                  <Buttons label='disabed' type='disabled'/>
                 </div>
 
 

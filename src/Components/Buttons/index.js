@@ -17,18 +17,19 @@ export default class Buttons extends React.Component{
 
 	render(){
        
-        let {label,type}=this.props;
-        var buttonStyle='';
-        if(type=='red'){
-            buttonStyle='red-btn-back';
+        let {label,theme,type}=this.props;
+        var buttonTheme='';
+        if(theme=='red'){
+            buttonTheme='red-theme';
         }
         
 		return (
               <div className='ui-buttons'>
-                    <div className={`buttons-primary ${buttonStyle}`} onClick={this.onClick}>
+                    <div className={`buttons-primary ${buttonTheme}`} onClick={this.onClick}>
                         {label}
                         <WaterWave color="#fff" duration={400} />
                     </div>
+                    {type=='disabled'&&<div className='btn-disabled'></div>}
              </div>
 		);
 	}
