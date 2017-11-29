@@ -16,6 +16,7 @@ import LazyImg from './LazyImg';
 import Tooltip from "./Tooltip";
 import Menu from './Menu';
 import ButtonBase from './ButtonBase';
+import Buttons from './Buttons';
 
 module.exports = {
 	Clamp,
@@ -35,5 +36,6 @@ module.exports = {
 	LazyImg,
 	Tooltip,
 	Menu,
-	ButtonBase
+	ButtonBase,
+	Buttons
 }

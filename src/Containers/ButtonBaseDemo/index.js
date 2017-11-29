@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-	ButtonBase
+    ButtonBase,
+    Buttons
 } from "react-ui"
 export default class ButtonBaseDemo extends React.Component{
     constructor(props, context) {
@@ -11,6 +12,10 @@ export default class ButtonBaseDemo extends React.Component{
     componentDidMount = () => {
       
     }
+
+    btnClick=()=>{
+        console.log('123');
+    }
     
 
     render() {
@@ -20,6 +25,14 @@ export default class ButtonBaseDemo extends React.Component{
                <ButtonBase >
                     <div style = {{width:100,height:100,background:"red"}}>hhhhhhh</div>
                </ButtonBase>
+
+
+                <div style={{marginTop:'30px'}}>
+                  <Buttons label='redTheme'  onClick={this.btnClick} type='red'/>
+                  <Buttons label='primary'  onClick={this.btnClick}/>
+                </div>
+
+
             </div>
         );
     }
