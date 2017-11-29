@@ -37,7 +37,7 @@ export default class ProcessLine extends React.Component {
 
 	render() {
 
-        const { current } = this.state;
+    const { current } = this.state;
 
 		return (
 				<div className='ui-wrap-process'>

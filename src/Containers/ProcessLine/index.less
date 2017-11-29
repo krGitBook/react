@@ -23,9 +23,12 @@
         text-align: center;
         padding-top: 80px;
     }
-    .ui-steps{     
+    .ui-steps{   
+        display: flex;  
         .steps-inner{
             display:inline-block;
+            flex-basis: 50%;
+            position: relative;
             .steps-circle{
                 font-size:12px;
                 width:25px;
@@ -50,15 +53,39 @@
                 vertical-align: middle;
             }
 
+
             .steps-text{
-                padding:0px 10px;
+                padding:10px 0px;
                 font-size:14px;
                 font-weight: 200;
                 color:#ccc;
-                display:inline-block;
             }
+            .current-color-style{
+                color:#333;
+            }
+
+
             .steps-line{
-                           
+                display:inline-block;
+                position: absolute;
+                left:35px;
+                right:10px;
+                height:1px;
+                background:#ccc;
+                top:12.5px;
+            }
+            .steps-line-left{
+                display:inline-block;
+                position: absolute;
+                left:35px;
+                width:0px;
+                height:1px;
+                background:#499df1;
+                top:12.5px;
+                transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            }
+            .line-step-style{
+                width:~"calc(100% - 45px)";
             }
         }
     }
