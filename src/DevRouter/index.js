@@ -62,7 +62,7 @@ export default class DevRouter extends React.Component{
                             onClick = {() =>{
                               this.click(index);
                             }}
-                            style = {{backgroundColor:activeIndex == index ? "#e0e0e0" : "rgba(255, 255, 255, 1)"}}
+                            style = {{color:activeIndex == index ? "#499df1" : "rgba(0, 0, 0, 0.54)"}}
                           >
                             {item.textValue}
                           </Link>
