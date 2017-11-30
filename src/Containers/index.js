@@ -11,6 +11,7 @@ import TooltipDemo from './TooltipDemo';
 import MenuDemo from './MenuDemo';
 import ButtonBaseDemo from './ButtonBaseDemo';
 import ProcessLine from './ProcessLine';
+import Loading from './Loading';
 
 
 // export default Welcome ;
@@ -28,6 +29,6 @@ module.exports = {
 	TooltipDemo,
 	MenuDemo,
 	ButtonBaseDemo,
-	ProcessLine
-
+	ProcessLine,
+	Loading
 }

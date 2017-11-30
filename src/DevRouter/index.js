@@ -14,7 +14,8 @@ import {
   TooltipDemo,
   MenuDemo,
   ButtonBaseDemo,
-  ProcessLine
+  ProcessLine,
+  Loading
 } from 'react-pages';
 import {
 	Paper,
@@ -35,7 +36,8 @@ var navs = [
   {textValue:'步骤条',router:'/processLine',component:ProcessLine},
   {textValue:'气泡案例',router:'/tooltipDemo',component:TooltipDemo},
   {textValue:'导航菜单',router:'/menuDemo',component:MenuDemo},
-  {textValue:'点击水纹效果',router:'/buttonBaseDemo',component:ButtonBaseDemo},
+  {textValue:'按钮水纹',router:'/buttonBaseDemo',component:ButtonBaseDemo},
+  {textValue:'加载',router:'/loading',component:Loading},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -101,7 +103,7 @@ export default class DevRouter extends React.Component{
                 <Route path="/tooltipDemo" component={TooltipDemo} />
                 <Route path="/menuDemo" component={MenuDemo} />
                 <Route path="/buttonBaseDemo" component={ButtonBaseDemo} />
-
+                <Route path="/loading" component={Loading} />
                 <Route component={Undefined} />
               </Switch>
             </div>
