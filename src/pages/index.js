@@ -1,12 +1,12 @@
-import Welcome from './Welcome';
-import Undefined from './Undefined';
-import Basic from './Basic';
-import Initialize from './Initialize';
+import Home from './Home';
+import Task from './Task';
+import Basic from './Basic'
 
 
-export default {
-	Welcome,
-	Undefined,
-	Basic,
-	Initialize,
+// export default Welcome ;
+
+module.exports = {
+	Home,
+	...Task,
+	Basic
 }

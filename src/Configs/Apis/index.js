@@ -1,6 +1,6 @@
 module.exports = {
       'demo': {
-          url: '/api/krspace-finance-web/action/community-city-selected',
+          url: '/api/krspace-finance-web/action/id/community-city-selected',
           method: 'get'
       },
 }

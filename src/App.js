@@ -1,23 +1,19 @@
 import React from 'react';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
-import DevRouter from './DevRouter'
-
+import {Hander} from 'react-ui';
+import RouterDom from 'router-data'
+import './app.css'
 export default class App extends React.Component {
-
-
   componentDidMount() {
-    
+
   }
-
   render() {
-
     return (
-
-      <HashRouter>
-        <DevRouter />
-       
-      </HashRouter>
-
+        <HashRouter>
+          <Hander>
+            <RouterDom />
+          </Hander>
+        </HashRouter>
     );
   }
 }
