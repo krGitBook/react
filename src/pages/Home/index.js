@@ -12,8 +12,7 @@ class Home extends React.Component {
 			id:3,
 			name:5
 		};
-		let url = `/api/{id}/mm/{name}`
-		console.log(getParamsFarmt(url,data))
+		
 
 	}
 	handleClick = (e) => {

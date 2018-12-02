@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
-import { HashRouter, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 import './index.less'
@@ -136,37 +136,6 @@ export default class Hander extends React.Component {
         >
         {this.handerRender(navs)}
         </Menu>
-        {/* <Menu
-          onClick={this.handleClick}
-          selectedKeys={[this.state.current]}
-          mode="horizontal"
-        >
-          <Menu.Item key="mail">
-            <Link to='/' ><Icon type="mail" />首页</Link>
-          </Menu.Item>
-
-          <SubMenu 
-            title={<span className="submenu-title-wrapper">
-              <Icon type="setting" />任务</span>
-            }
-          >
-            <MenuItemGroup title="任务">
-             
-              <Menu.Item key="setting1">
-                <Link to='/task/ongoing/home' >进行中</Link>
-              </Menu.Item>
-              <Menu.Item key="setting2">
-                <Link to='/task/unfinished/home' >未开始</Link>
-              </Menu.Item>
-              <Menu.Item key="setting3">
-                <Link to='/task/historica/list' >历史任务</Link>
-              </Menu.Item>
-            </MenuItemGroup>
-          </SubMenu>
-          <Menu.Item key="alipay">
-            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">外部链接</a>
-          </Menu.Item>
-        </Menu> */}
 
         <div className="ui-react-left">
 
