@@ -13,11 +13,7 @@ let menuItemKey = 1;
     current: 'item1',
   }
   componentDidMount(){
-    Http.get('/api/krspace-op-web/app/operation/community/use-rate',{dataDate: '2018-12-04'}).then((res)=>{
-			console.log(res,"kkkkk")
-		}).catch(()=>{
-
-		})
+   
   }
   handleClick = (e) => {
    
