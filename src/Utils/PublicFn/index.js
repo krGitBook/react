@@ -1,3 +1,4 @@
+import findDimensions from "./findDimensions";
 var arr1 = ['1', '2', '3', '4', '5', '6', '6', '7', '8', '1', '1', '1'];
 console.log(allRepeat(arr1))
 /**
@@ -93,5 +94,6 @@ function getNode(name){
  module.exports = {
 	addEvent,
 	getNode,
-	krAnimation
+	krAnimation,
+	findDimensions
  }  

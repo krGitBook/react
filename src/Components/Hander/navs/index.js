@@ -2,12 +2,13 @@ export default [
   {
     title:'首页',
     url:'/',
+    name:'home',
     level:1
   },
   {
     title:'任务',
     url:'/',
-    icon:'mail',
+    name:'task',
     level:1,
     children:[
       {
@@ -15,23 +16,27 @@ export default [
         url:'/',
         icon:'setting',
         level:2,
+        name:'task',
         children:[
           {
             title:'进行中',
             url:'/task/ongoing/home',
             icon:'/',
+            name:'task:1',
             level:3
           },
           {
             title:'未开始',
             url:'/task/unfinished/list',
             icon:'/',
+            name:'task:2',
             level:3
           },
           {
             title:'历史任务',
             url:'/task/historica/list',
             icon:'/',
+            name:'task:3',
             level:3
           }
         ]
