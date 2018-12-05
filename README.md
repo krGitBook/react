@@ -11,7 +11,7 @@
   的43与44行
   ```
   const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 8001;
-  const HOST = process.env.HOST || 'adminlocal.krspace.cn';
+  const HOST = process.env.HOST || 'adminlocal.yihaoliu.cn';
   ```
 2. 代理配置（脱离nginx 使用）
   路径 /config/proxy.config.js
