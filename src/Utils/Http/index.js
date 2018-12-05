@@ -27,7 +27,7 @@ const getParamsFarmt = (url, params, type) => {
     
     for (let key in params) {
 
-      url = url+params[key]+'&'
+      url = url+key+'='+params[key]+'&'
     }
   }
 
