@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Page from '../Page';
 import './index.less';
 import navs from './navs'
+import {Http} from 'Utils'
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 let menuItemKey = 1;
@@ -11,9 +12,15 @@ let menuItemKey = 1;
   state = {
     current: 'item1',
   }
+  componentDidMount(){
+    Http.get('/api/krspace-op-web/app/operation/community/use-rate',{dataDate: '2018-12-04'}).then((res)=>{
+			console.log(res,"kkkkk")
+		}).catch(()=>{
 
+		})
+  }
   handleClick = (e) => {
-    console.log('click ', e);
+   
     this.setState({
       current: e.key,
     });

@@ -77,7 +77,31 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
-    proxy,
+    proxy:{
+      host: "adminlocal.krspace.cn",
+      port: 1998, // 端口号
+      https: false, // https:{type:Boolean}
+      open: true, //配置自动启动浏览器  http://172.16.1.12:7071/rest/mcdPhoneBar/
+      hotOnly: true, // 热更新
+      // proxy: 'http://localhost:8000'   // 配置跨域处理,只有一个代理
+      proxy: { //配置自动启动浏览器
+        "/api": {
+          target: "http://optext04.krspace.cn",
+          changeOrigin: true,
+          // ws: true,//websocket支持
+          secure: false,
+          pathRewrite: {
+            '^/api': '/api'
+          }
+        },
+        "/pbsevice/*": {
+          target: "http://172.16.1.12:2018",
+          changeOrigin: true,
+          //ws: true,//websocket支持
+          secure: false
+        },
+      }
+    },
     setup(app) {
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());

@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import {Hander} from 'react-ui';
-import RouterDom from 'router-data'
+import Routers from './routers'
 import './app.css'
 export default class App extends React.Component {
   componentDidMount() {
@@ -11,7 +11,7 @@ export default class App extends React.Component {
     return (
         <HashRouter>
           <Hander>
-            <RouterDom />
+            <Routers />
           </Hander>
         </HashRouter>
     );

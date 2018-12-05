@@ -12,7 +12,6 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
-console.log(path.join(process.cwd(), '/src/Containers'),"KKKKKKKK")
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -88,10 +87,11 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      'react-pages': path.join(process.cwd(), '/src/Containers'),
+      'react-pages': path.join(__dirname, '../src/pages'),
       'react-ui': path.join(__dirname, '../src/Components'),
       'Utils': path.join(__dirname, '../src/Utils'),
       'react-config': path.join(__dirname, '../src/Configs'),
+      'router-data': path.join(__dirname, '../src/routers'),
 
     },
     plugins: [
