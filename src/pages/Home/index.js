@@ -11,7 +11,7 @@ class Home extends React.Component {
 		Http.get('/api/krspace-op-web/app/operation/community/use-rate',{dataDate: '2018-12-04'}).then((res)=>{
 			console.log(res,"kkkkk")
 		}).catch((error)=>{
-			message.error(error)
+			//message.error(error)
 		})
 		
 
