@@ -25,6 +25,7 @@
   'ajax': path.join(__dirname, '../src/common/js/ajax'),
   'style': path.join(__dirname, '../src/common/style')
 ```
+
 ## 目录设置（介绍src文件夹的主要文件夹）
 1. Components 组件库文件夹
 2. pages 页面文件夹
@@ -35,6 +36,8 @@
 
 
 # ajax请求的使用
+ajax 封装的位置 common/js/ajax
+用的基础库是 axios
 
 ```
 // 引用

@@ -12,15 +12,15 @@ class Hander extends React.Component {
     activeKey: navs[0].children[0].url
   }
   componentDidMount() {
-    
+
   }
+  // 菜单高亮
   handleClick = (e) => {
- 
     this.setState({
       current: e.key,
     });
   }
-  // 
+  // 判断是否是外链
   flogLink = (url) => {
 
     if (url && (url.indexOf('http://') != -1 || url.indexOf('https://') != -1)) {
@@ -28,6 +28,7 @@ class Hander extends React.Component {
     }
     return false;
   }
+  // 一级菜单点击
   goPage = (data) => {
     if (data && data.children && data.children.length) {
       this.setState({
@@ -43,13 +44,12 @@ class Hander extends React.Component {
     location.hash = data.children[0].url;
 
   }
-
+// 一级菜单渲染
   handerRender = (data) => {
-
     let arr = data.map((item, index) => {
-      let itemKey = item.name||item.url;
+      let itemKey = item.name || item.url;
       const { url, title } = item;
-    
+
       const type = this.menuType(item);
       if (type == 'default') {
         return (
@@ -88,18 +88,18 @@ class Hander extends React.Component {
       </Menu.Item>)
 
     })
-
     return arr
 
   }
+  // 二级菜单点击
   tabsChange = (val) => {
-   
+
     location.hash = val;
     this.setState({
       activeKey: val
     })
   }
-  // 
+  // 二级菜单渲染
   renderTabs = (data) => {
     const { activeKey } = this.state;
     let tabs = data.map((item, index) => {
@@ -110,15 +110,19 @@ class Hander extends React.Component {
     console.log(activeKey, "oooooo")
     return <Tabs activeKey={activeKey} onChange={this.tabsChange} type="card">{tabs}</Tabs>
   }
+  // 菜单类型判断 
   menuType = (data) => {
     const { url, icon, children, title } = data;
     const isLink = this.flogLink(url);
     if (isLink) {
+      // 外链跳转
       return 'link'
     }
     if (!url && !children) {
+      // 禁止点击
       return 'disabled'
     }
+    // 默认情况
     return 'default'
 
   }
