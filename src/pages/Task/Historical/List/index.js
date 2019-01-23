@@ -1,77 +1,100 @@
-import { Table, Divider, Tag, Modal, Button } from 'antd';
+import { Table, Divider, Tag, Modal, Button, message } from 'antd';
 import WrappedRegistrationForm from '../Add'
-import React,{Component} from 'react';
+import React, { Component } from 'react';
+import ajax from 'ajax';
 const { Column, ColumnGroup } = Table;
 
 
 class TaskHistoricalList extends Component {
   state = {
     openAdd: false,
-    data: [{
-      key: '1',
-      firstName: 'John',
-      lastName: 'Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    }, {
-      key: '2',
-      firstName: 'Jim',
-      lastName: 'Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    }, {
-      key: '3',
-      firstName: 'Joe',
-      lastName: 'Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    },{
-      key: '4',
-      firstName: 'John',
-      lastName: 'Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    }, {
-      key: '5',
-      firstName: 'Jim',
-      lastName: 'Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    }, {
-      key: '6',
-      firstName: 'Joe',
-      lastName: 'Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    },{
-      key: '7',
-      firstName: 'John',
-      lastName: 'Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    }, {
-      key: '8',
-      firstName: 'Jim',
-      lastName: 'Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    }, {
-      key: '9',
-      firstName: 'Joe',
-      lastName: 'Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    }]
+    data: []
   }
+  componentDidMount() {
+    this.getListData({ id: '' })
+  }
+  // 获取类表数据
+  getListData = (params) => {
+    ajax.get('demo', params).then((res) => {
+      this.setState({
+        data:[{
+          key: '1',
+          firstName: 'John',
+          lastName: 'Brown',
+          age: 32,
+          address: 'New York No. 1 Lake Park',
+          tags: ['nice', 'developer'],
+        }, {
+          key: '2',
+          firstName: 'Jim',
+          lastName: 'Green',
+          age: 42,
+          address: 'London No. 1 Lake Park',
+          tags: ['loser'],
+        }, {
+          key: '3',
+          firstName: 'Joe',
+          lastName: 'Black',
+          age: 32,
+          address: 'Sidney No. 1 Lake Park',
+          tags: ['cool', 'teacher'],
+        }, {
+          key: '4',
+          firstName: 'John',
+          lastName: 'Brown',
+          age: 32,
+          address: 'New York No. 1 Lake Park',
+          tags: ['nice', 'developer'],
+        }, {
+          key: '5',
+          firstName: 'Jim',
+          lastName: 'Green',
+          age: 42,
+          address: 'London No. 1 Lake Park',
+          tags: ['loser'],
+        }, {
+          key: '6',
+          firstName: 'Joe',
+          lastName: 'Black',
+          age: 32,
+          address: 'Sidney No. 1 Lake Park',
+          tags: ['cool', 'teacher'],
+        }, {
+          key: '7',
+          firstName: 'John',
+          lastName: 'Brown',
+          age: 32,
+          address: 'New York No. 1 Lake Park',
+          tags: ['nice', 'developer'],
+        }, {
+          key: '8',
+          firstName: 'Jim',
+          lastName: 'Green',
+          age: 42,
+          address: 'London No. 1 Lake Park',
+          tags: ['loser'],
+        }, {
+          key: '9',
+          firstName: 'Joe',
+          lastName: 'Black',
+          age: 32,
+          address: 'Sidney No. 1 Lake Park',
+          tags: ['cool', 'teacher'],
+        }]
+      })
+    }).catch((err) => {
+      message.error(err.message || '系统出错喽');
+    })
+  }
+  // 新建页面确定
+  okSubmit=(data)=>{
+    ajax.post('demo',{id:1}).then((res)=>{
+      this.switchAdd();
+    }).catch((err)=>{
+      message.error(err.message || '系统出错喽');
+    })
+  }
+  // 新建页面开关
   switchAdd = () => {
     const { openAdd } = this.state;
     this.setState({
@@ -79,7 +102,7 @@ class TaskHistoricalList extends Component {
     })
   }
   render() {
-    const { data,openAdd } = this.state;
+    const { data, openAdd } = this.state;
     return (
       <div>
         <Button type="primary" onClick={this.switchAdd}>新建</Button>
@@ -132,10 +155,10 @@ class TaskHistoricalList extends Component {
           title="Vertically centered modal dialog"
           centered
           visible={openAdd}
-          onOk={this.switchAdd}
+          onOk={this.okSubmit}
           onCancel={this.switchAdd}
         >
-         <WrappedRegistrationForm />
+          <WrappedRegistrationForm />
         </Modal>
       </div>
     )

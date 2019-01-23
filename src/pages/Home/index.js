@@ -1,20 +1,18 @@
 
 import React from 'react';
 import { message, Button } from 'antd'
-import {Http} from 'Utils';
+import ajax from 'ajax'
 class Home extends React.Component {
 	constructor(props,context){
 		super(props, context);
 		this.state = {};
 	}
 	componentDidMount() {
-		Http.get('/api/krspace-op-web/app/operation/community/use-rate',{dataDate: '2018-12-04'}).then((res)=>{
-			console.log(res,"kkkkk")
-		}).catch((error)=>{
-			message.error(error)
+		ajax.get('demo').then((res)=>{
+			console.log(res,"=-=====");
+		}).catch((err)=>{
+			message.error(err.message||'系统出错喽');
 		})
-		
-
 	}
 	handleClick = (e) => {
 		console.log('click ', e);

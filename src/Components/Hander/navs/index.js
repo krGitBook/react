@@ -1,56 +1,47 @@
 export default [
   {
-    title:'首页',
-    url:'/',
+    title:'热门',
     name:'home',
-    level:1
-  },
-  {
-    title:'任务',
-    url:'/',
-    name:'task',
-    level:1,
     children:[
       {
-        title:'作战任务',
+        title:'进行中',
         url:'/',
-        icon:'setting',
-        level:2,
-        name:'task',
-        children:[
-          {
-            title:'进行中',
-            url:'/task/ongoing/home',
-            icon:'/',
-            name:'task:1',
-            level:3
-          },
-          {
-            title:'未开始',
-            url:'/task/unfinished/list',
-            icon:'/',
-            name:'task:2',
-            level:3
-          },
-          {
-            title:'历史任务',
-            url:'/task/historica/list',
-            icon:'/',
-            name:'task:3',
-            level:3
-          }
-        ]
+      },
+      {
+        title:'未开始',
+        url:'/task/ongoing/home',
+       
+      },
+      {
+        title:'历史任务',
+        url:'/task/ongoing/list',
+      }
+    ]
+  },{
+    title:'其他热门',
+    name:'homeOther',
+    children:[
+      {
+        title:'进行中--',
+        url:'/task/ongoing/home',
+      },
+      {
+        title:'未开始--',
+        url:'/task/unfinished/list',
+      },
+      {
+        title:'历史任务--',
+        url:'/task/historica/list'
       }
     ]
   },
   {
     title:'外部链接',
-    url:'https://ant.design',
-    level:1
+    
+    url:'https://ant.design'
   },
   {
     title:'不可点击',
-    url:'',
-    level:1
+    url:''
   },
 ]

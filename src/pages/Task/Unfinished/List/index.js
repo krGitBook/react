@@ -1,18 +1,16 @@
 
 import React from 'react';
-import {Http} from 'Utils'
-
 class TaskUnfinishedList extends React.Component {
 	constructor(props,context){
 		super(props, context);
 		this.state = {};
 	}
 	componentDidMount() {
-		Http.get('/api/krspace-op-web/app/operation/community/use-rate',{dataDate: '2018-12-04'}).then((res)=>{
-			console.log(res,"kkkkk")
-		}).catch(()=>{
+		// Http.get('/api/krspace-op-web/app/operation/community/use-rate',{dataDate: '2018-12-04'}).then((res)=>{
+		// 	console.log(res,"kkkkk")
+		// }).catch(()=>{
 
-		})
+		// })
 	
 	}
 

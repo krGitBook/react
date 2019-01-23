@@ -10,6 +10,3 @@ export default  ()=>{
         <Route exact path="/" component={Home} />
     );
 }
-
-
-	

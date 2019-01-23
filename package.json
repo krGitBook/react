@@ -4,14 +4,12 @@
   "private": true,
   "dependencies": {
     "antd": "^3.10.9",
+    "axios": "^0.18.0",
     "immutable": "^3.8.1",
     "js-base64-file": "^1.0.1",
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^16.1.1",
-    "react-redux": "^5.0.5",
-    "redux": "^3.7.1",
-    "redux-saga": "^0.15.4",
     "url-search-params": "^0.9.0"
   },
   "devDependencies": {
