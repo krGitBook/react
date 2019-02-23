@@ -1,73 +1,63 @@
 import React from 'react';
-import { message } from 'antd'
-import Dialog from './controls/dialog'
-import DialogTable from './controls/dialogTable'
-import Buttons from '../../Components/Button/index'
-import ajax from 'ajax'
+import {Tabs,TabPane} from 'react-ui';
+import { Icon,Modal } from 'antd';
+
+import Search from './Search';
+import AdvancedQuery from './AdvancedQuery'
+import './index.less'
 class Home extends React.Component {
 	constructor(props,context){
 		super(props, context);
 		this.state = {
 			visible: false,
 			visibleTable: false ,
-			databean:{}
+			databean:{},
+			openAdvancedQuery:false,
 		};
 	}
 
 	componentDidMount() {
-		ajax.get('demo5').then((res)=>{//获取form表单值
-			this.setState({databean:res});
-			console.log(res,"=-=====");
-		}).catch((err)=>{
-			message.error(err.message||'系统出错喽');
+		
+	}
+	onTabClick = (event)=>{
+		console.log(event,"当前点击元素")
+	}
+	submit = ()=>{
+		this.swidthAdvancedQuery()
+	}
+	swidthAdvancedQuery=()=>{
+		const {openAdvancedQuery} = this.state;
+		this.setState({
+			openAdvancedQuery:!openAdvancedQuery
 		})
 	}
-
-	handleClick = (e) => {
-		console.log('click ', e);
-	}
-
-	headerClick = (e) => {
-		console.log(`id为${e}被单击`)
-		if(e === '11') 
-		return this.setState({
-      visible: true,
-	});
-	if(e === '22') 
-		return this.setState({
-			visibleTable: true,
-    });
-	}
-
-	handleOk = () => {
-		this.setState({ loading: false, visible: false });
-	}
-	handleOkTable = () => {
-		this.setState({ loading: false, visibleTable: false });
-	}
-	handleCancel = () => {
-		this.setState({ visible: false });
-	}
-	handleCancelTable = () => {
-		this.setState({ visibleTable: false });
-	}
+	
 	render() {	
-		const btnOptions = {
-      change: this.headerClick,
-      btns: [
-        {text: '图片122222', icon:'3.jpg', id: '11'},
-        {text: '图片2', icon:'2.jpg', id: '22'},
-        {text: '图片3', icon:'3.jpg', id: '221'},
-      ]
-		}
-		//声明变量
-		const { visible ,visibleTable} = this.state;
+		const {openAdvancedQuery} = this.state;
 		return (
 			<div>
-				<Buttons data={btnOptions}/>
-				
-				{visible && <Dialog onOk={this.handleOk} onCancel={this.handleCancel} databean={this.state.databean} title="作战任务基本属性"/>}
-				{visibleTable && <DialogTable onOk={this.handleOkTable} onCancel={this.handleCancelTable} databean={this.state.databean} title="计划管理"/>}
+				<Tabs onTabClick={this.onTabClick} defaultActiveKey="all">
+					<TabPane tab={<span>全部任务</span>} label="all">
+					<div onClick={this.swidthAdvancedQuery} className="advanced-query" >高级查询</div>
+						<Search/>
+					
+					</TabPane>
+					<TabPane tab="完成任务" label="complete">
+						<div>完成数据列表</div>
+					</TabPane>
+					<TabPane tab="未完成任务" label="unfinished">
+						<div>未完成数据列表</div>
+					</TabPane>
+				</Tabs>
+				<Modal
+          title="高级查询"
+          visible={openAdvancedQuery}
+          
+					onCancel={this.swidthAdvancedQuery}
+					footer={null}
+        >
+					<AdvancedQuery submit={this.submit}/>
+        </Modal>
 			</div>
 		);
 	}

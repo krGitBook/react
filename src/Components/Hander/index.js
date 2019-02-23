@@ -3,8 +3,8 @@ import { Menu, Icon, Tabs } from 'antd';
 import { Link } from 'react-router-dom';
 import './index.less';
 import navs from './navs'
+
 const TabPane = Tabs.TabPane;
-let menuItemKey = 1;
 class Hander extends React.Component {
   state = {
     current: navs[0].name,
@@ -41,7 +41,7 @@ class Hander extends React.Component {
         activeKey: data.children[0].url
       })
     }
-    location.hash = data.children[0].url;
+    // location.hash = data.children[0].url;
 
   }
 // 一级菜单渲染
@@ -94,7 +94,7 @@ class Hander extends React.Component {
   // 二级菜单点击
   tabsChange = (val) => {
 
-    location.hash = val;
+    // location.hash = val;
     this.setState({
       activeKey: val
     })

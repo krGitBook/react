@@ -1,0 +1,48 @@
+.tabs{
+  .tabs-hander{
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 14px;
+    position: relative;
+  }
+  
+  .tabs-content{
+    padding:10px 20px;
+  }
+  .active-bar{
+    display: inline-block;
+    position: absolute;
+    bottom: -1px;
+    height: 2px;
+    transition: all 0.2s ease-in;
+  }
+  .active-bar::after{
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    bottom: -2px;
+    width: 100%;
+    background: #1890ff;
+  }
+  .tabs-pane-label{
+    display: inline-block;
+    margin:0px 20px 0px 20px;
+    padding: 20px 0 5px 0px;
+    cursor: pointer;
+    position: relative;
+  }
+  .tabs-pane-label:hover{
+    color: #1890ff;
+    font-weight: 500;
+  }
+  .tabs-pane-label-active{
+    color: #1890ff;
+    font-weight: 500;
+
+    
+  }
+  .tab-pane{
+    display: inline-block;
+  }
+}

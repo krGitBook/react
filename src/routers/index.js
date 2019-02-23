@@ -10,10 +10,7 @@ import task from './task';
 export default  ()=>{
   return (
       <Switch>
-       
-        <Route path="/news" component={Home} />
-        {project()}
-        {task()}
+        <Route path="/" component={Home} />
       </Switch>
   );
 }

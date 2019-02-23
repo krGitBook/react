@@ -10,9 +10,9 @@ export default class App extends React.Component {
   render() {
     return (
         <HashRouter>
-          <Hander>
+          {/* <Hander> */}
             <Routers />
-          </Hander>
+          {/* </Hander> */}
         </HashRouter>
     );
   }

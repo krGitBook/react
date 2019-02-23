@@ -5,5 +5,6 @@ module.exports = {
   'common': path.join(__dirname, '../src/common'),
   'utils': path.join(__dirname, '../src/common/js/utils'),
   'ajax': path.join(__dirname, '../src/common/js/ajax'),
-  'style': path.join(__dirname, '../src/common/style')
+  'style': path.join(__dirname, '../src/common/style'),
+  'actions': path.join(__dirname, '../src/redux/actions')
 }

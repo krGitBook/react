@@ -57,7 +57,7 @@ function errorFormat(error, reject, callback) {
   // 登录判断不同项目不一样
 
   if (error && error.status && error.status >= 400) {
-    const resData = res.data || {};
+    const resData = error.data || {};
     if (resData.code && resData.code == 'NON_LOGIN') {
 
       //跳转到登录页面 并记录当前页面地址
@@ -65,7 +65,7 @@ function errorFormat(error, reject, callback) {
       window.location.href = `/login?ROUT=${redirectUrl}`;
 
     } else {
-      reject(res)
+      reject(error)
     }
   }else{
     reject(error);
