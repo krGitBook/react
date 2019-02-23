@@ -4,6 +4,8 @@
  */
 import axios from "axios";
 import APIS from "../../apis";
+const env = process.env.NODE_ENV;
+console.log(process.env.NODE_ENV,"-----")
 // 获取参数类型
 const toType = obj => ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
 
@@ -11,7 +13,6 @@ const toType = obj => ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerC
 axios.defaults = Object.assign(axios.defaults, {
   //正式环境和开发测试域名区分 
   //baseURL:'//127.0.0.1:8090',
- 
   timeout: 10000, //超时
   withCredentials: true ,// 跨域请求是否提供凭据信息
   
@@ -56,20 +57,20 @@ function filterNull(o) {
 function errorFormat(error, reject, callback) {
   // 登录判断不同项目不一样
 
-  if (error && error.status && error.status >= 400) {
-    const resData = error.data || {};
-    if (resData.code && resData.code == 'NON_LOGIN') {
+  // if (error && error.status && error.status >= 400) {
+  //   const resData = error.data || {};
+  //   if (resData.code && resData.code == 'NON_LOGIN') {
 
-      //跳转到登录页面 并记录当前页面地址
-      const redirectUrl = encodeURIComponent(window.location.pathname + window.location.search);
-      window.location.href = `/login?ROUT=${redirectUrl}`;
+  //     //跳转到登录页面 并记录当前页面地址
+  //     const redirectUrl = encodeURIComponent(window.location.pathname + window.location.search);
+  //     window.location.href = `/login?ROUT=${redirectUrl}`;
 
-    } else {
-      reject(error)
-    }
-  }else{
-    reject(error);
-  }
+  //   } else {
+  //     reject(error)
+  //   }
+  // }else{
+  //   reject(error);
+  // }
   callback && callback(error);
 }
 
