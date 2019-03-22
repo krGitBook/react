@@ -1,127 +1,68 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 项目启动
-```
- 1. npm install
- 2. npm start
-```
-## 项目配置
+## Available Scripts
 
-1. 端口域名配置
-  路径 /scripts/start.js
-  的43与44行
-  ```
-  const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 8001;
-  const HOST = process.env.HOST || 'adminlocal.yihaoliu.cn';
-  ```
-2. 代理配置（脱离nginx 使用）
-  路径 /config/proxy.config.js
-  
-## 路径简写
-```
-  'react-pages': path.join(__dirname, '../src/pages'),
-  'react-ui': path.join(__dirname, '../src/Components'),
-  'common': path.join(__dirname, '../src/common'),
-  'utils': path.join(__dirname, '../src/common/js/utils'),
-  'ajax': path.join(__dirname, '../src/common/js/ajax'),
-  'style': path.join(__dirname, '../src/common/style')
-```
+In the project directory, you can run:
 
-## 目录设置（介绍src文件夹的主要文件夹）
-1. Components 组件库文件夹
-2. pages 页面文件夹
-3. routers 路由配置文件夹
-4. common 公共文件夹
-5. common/apis 接口公共书写文件夹
-6. Components/Hander/navs 菜单配置文件，里边有的参数必填且唯一
+### `npm start`
 
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-# ajax请求的使用
-ajax 封装的位置 common/js/ajax
-用的基础库是 axios
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-```
-// 引用
-import ajax from 'ajax';
+### `npm test`
 
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-/**
-  * url 请求接口的别名
-  * params 请求的参数是一个对象
-  * config {hander} 里边有一个hander对象用于修改 hander 配置
-/
-//get请求
+### `npm run build`
 
-ajax.get(url,params,config).then((res)=>{
-  //返回数据处理
-}).catch((err)=>{
-  //错误数控处理
-})
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-//put请求
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-ajax.put(url,params,config).then((res)=>{
-  //返回数据处理
-}).catch((err)=>{
-  //错误数控处理
-})
+### `npm run eject`
 
-//delete请求
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-ajax.delete(url,params,config).then((res)=>{
-  //返回数据处理
-}).catch((err)=>{
-  //错误数控处理
-})
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-propsType 类型
-```
-optionalArray: PropTypes.array,//检测数组类型
-optionalBool: PropTypes.bool,//检测布尔类型
-optionalFunc: PropTypes.func,//检测函数（Function类型）
-optionalNumber: PropTypes.number,//检测数字
-optionalObject: PropTypes.object,//检测对象
-optionalString: PropTypes.string,//检测字符串
-optionalSymbol: PropTypes.symbol,//ES6新增的symbol类型
-//指定类型为：任何可以被渲染的元素，包括数字，字符串，react 元素，数组，fragment。
-optionalNode: PropTypes.node,
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-// 指定类型为：一个react 元素
-optionalElement: PropTypes.element,
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-//你可以类型为某个类的实例，这里使用JS的instanceOf操作符实现
-optionalMessage: PropTypes.instanceOf(Message),
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-//指定枚举类型：你可以把属性限制在某些特定值之内
-optionalEnum: PropTypes.oneOf(['News', 'Photos']),
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-// 指定多个类型：你也可以把属性类型限制在某些指定的类型范围内
-optionalUnion: PropTypes.oneOfType([
-  PropTypes.string,
-  PropTypes.number,
-  PropTypes.instanceOf(Message)
-]),
+### Code Splitting
 
-// 指定某个类型的数组
-optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-// 指定类型为对象，且对象属性值是特定的类型
-optionalObjectOf: PropTypes.objectOf(PropTypes.number),
+### Analyzing the Bundle Size
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-//指定类型为对象，且可以规定哪些属性必须有，哪些属性可以没有
-optionalObjectWithShape: PropTypes.shape({
-  optionalProperty: PropTypes.string,
-  requiredProperty: PropTypes.number.isRequired
-}),
+### Making a Progressive Web App
 
-// 指定类型为对象，且可以指定对象的哪些属性必须有，哪些属性可以没有。如果出现没有定义的属性，会出现警告。
-//下面的代码optionalObjectWithStrictShape的属性值为对象，但是对象的属性最多有两个，optionalProperty 和 requiredProperty。
-//出现第三个属性，控制台出现警告。
-optionalObjectWithStrictShape: PropTypes.exact({
-  optionalProperty: PropTypes.string,
-  requiredProperty: PropTypes.number.isRequired
-}),
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
