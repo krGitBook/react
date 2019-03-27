@@ -13,10 +13,12 @@ import React, { useState,useEffect , useContext} from 'react';
  * useDebugValue
  */
 
+const FetchesContext = React.createContext(null);
+console.log(FetchesContext,"kkkkkk")
 function Hooks() {
   // Declare a new state variable, which we'll call "count"
   const [count, setCount] = useState(0);
-  console.log( useContext(Child),"kkkk")
+  // console.log( useContext(),"kkkk")
 
   useEffect(() => {
     document.title = count;
@@ -38,7 +40,7 @@ function Child(){
 
   return (
     <div>
-      <p>`点击次数{count}`</p>
+      <p>{`点击次数${count}`}</p>
      <button onClick={() => setCount(count + 1)}>
         点击
       </button>

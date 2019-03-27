@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Hooks from './Hooks';
 import logo from './logo.svg';
 import './app.css';
+import Context from './Context';
 
 
 class App extends Component {
@@ -12,8 +13,9 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <Hooks />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            -----------------
           </p>
+          <Context/>
           <a
             className="App-link"
             href="https://reactjs.org"
