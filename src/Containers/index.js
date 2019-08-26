@@ -1,4 +1,4 @@
-import Welcome from './Welcome';
+// import Welcome from './Welcome';
 import Undefined from './Undefined';
 import Basic from './Basic';
 import Initialize from './Initialize';
@@ -12,12 +12,13 @@ import MenuDemo from './MenuDemo';
 import ButtonBaseDemo from './ButtonBaseDemo';
 import ProcessLine from './ProcessLine';
 import Loading from './Loading';
+import UpFileDom from './UpFile'
 
 
 // export default Welcome ;
 
 module.exports = {
-	Welcome,
+	// Welcome,
 	Undefined,
 	Basic,
 	Initialize,
@@ -30,5 +31,6 @@ module.exports = {
 	MenuDemo,
 	ButtonBaseDemo,
 	ProcessLine,
-	Loading
+	Loading,
+	UpFileDom
 }

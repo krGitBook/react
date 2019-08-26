@@ -15,7 +15,8 @@ import {
   MenuDemo,
   ButtonBaseDemo,
   ProcessLine,
-  Loading
+  Loading,
+  UpFileDom
 } from 'react-pages';
 import {
 	Paper,
@@ -26,7 +27,7 @@ import {
 import './index.less'
 import {Router} from 'react-config';
 var navs = [
-  {textValue:'首页',router:'/',component:Welcome},
+  // {textValue:'首页',router:'/',component:Welcome},
   {textValue:'关于',router:'/news',component:Initialize},
   {textValue:'',router:'/demo/lyh',component:Lyh},
   {textValue:'',router:'/demo/dfa',component:Dfa},
@@ -38,6 +39,7 @@ var navs = [
   {textValue:'导航菜单',router:'/menuDemo',component:MenuDemo},
   {textValue:'按钮水纹',router:'/buttonBaseDemo',component:ButtonBaseDemo},
   {textValue:'加载',router:'/loading',component:Loading},
+  {textValue:'上传',router:'/upfile',component:UpFileDom},
 ]
 export default class DevRouter extends React.Component{
     constructor(props,context){
@@ -104,6 +106,7 @@ export default class DevRouter extends React.Component{
                 <Route path="/menuDemo" component={MenuDemo} />
                 <Route path="/buttonBaseDemo" component={ButtonBaseDemo} />
                 <Route path="/loading" component={Loading} />
+                <Route path="/upfile" component={UpFileDom} />
                 <Route component={Undefined} />
               </Switch>
             </div>

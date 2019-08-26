@@ -17,6 +17,7 @@ import Tooltip from "./Tooltip";
 import Menu from './Menu';
 import ButtonBase from './ButtonBase';
 import Buttons from './Buttons';
+import UpFile from './UpFile';
 
 module.exports = {
 	Clamp,
@@ -37,5 +38,6 @@ module.exports = {
 	Tooltip,
 	Menu,
 	ButtonBase,
-	Buttons
+	Buttons,
+	UpFile
 }
