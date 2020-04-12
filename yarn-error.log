@@ -8,13 +8,13 @@ Yarn version:
   1.16.0
 
 Node version: 
-  10.16.0
+  10.16.3
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: EACCES: permission denied, mkdir '/Users/mac/work/react/node_modules/babel-core/node_modules/babel-runtime'
+  Error: EACCES: permission denied, mkdir '/Users/mac/work/react/node_modules/babel-jest/node_modules/babel-runtime'
 
 npm manifest: 
   {
